@@ -61,5 +61,5 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="{{asset ('js/controller/retos/RetosController.js')}}"></script>
+<script type="application/javascript" src="{{asset ('js/controller/retos/RetosController.js')}}"></script>
 @endsection

@@ -19,6 +19,12 @@ class RetoController extends Controller
         return view('retos.index',compact('lis_retos'));
     }
 
+    public function getretos(){
+
+        $retos = Reto::all()->toArray();
+        $data = $retos;
+        return  response()->json($data,200);
+    }
     /**
      * Show the form for creating a new resource.
      *

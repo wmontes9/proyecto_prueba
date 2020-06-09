@@ -18,5 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('retos/getretos','RetoController@getretos')->name('getretos');
 Route::resource("retos","RetoController");
