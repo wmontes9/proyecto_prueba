@@ -9,11 +9,12 @@ new Vue({
     },
     methods:{
         getListaRetos:function(){
-            let url = "retos";
+            let url = "/retos/getretos";
             axios.get(url).then(responce => {
-                this.retos = responce.data;                
-
-            });                        
+                this.retos = responce.data
+            }).catch((err) => {
+                    console.log(err)
+            });
         },
         editarReto:function(reto){
 			this.fillReto.id_reto = reto.id_reto;
@@ -34,12 +35,12 @@ new Vue({
             this.fillReto.elementos = reto.elementos;
             this.fillReto.descripcion_s = reto.descripcion_s;
             this.fillReto.evaluacion = reto.evaluacion;
-			this.fillReto.url_imagen = reto.url_imagen;		
+			this.fillReto.url_imagen = reto.url_imagen;
 			$("#editReto").modal("show");
         },
         eliminarReto:function(reto){
 			var url = "eliminar/" + reto;
-			axios.delete(url).then(response=>{                    				
+			axios.delete(url).then(response=>{
 				if(response.data != 0){
 					$.sweetModal({
 						content: 'No se ha podido eliminar ya que tiene soluciones  asociadas',

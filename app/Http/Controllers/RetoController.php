@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Reto;
 use Illuminate\Http\Request;
 use DB;
+
 class RetoController extends Controller
 {
     /**
@@ -14,16 +15,18 @@ class RetoController extends Controller
      */
     public function index()
     {
-        $lis_retos = Reto::all()->toArray();
+        //$lis_retos = Reto::all()->toArray();
         //return view('retos.index')->with(['retos'=>$lis_retos]);
-        return view('retos.index',compact('lis_retos'));
+        //return view('retos.index',compact('lis_retos'));
+        return view('retos.index_vue');
     }
 
-    public function getretos(){
+    public function getretos()
+    {
 
         $retos = Reto::all()->toArray();
         $data = $retos;
-        return  response()->json($data,200);
+        return  response()->json($data, 200);
     }
     /**
      * Show the form for creating a new resource.
@@ -43,7 +46,7 @@ class RetoController extends Controller
      */
     public function store(Request $request)
     {
-       /* $fields = request()->validate([  //para validar información
+        /* $fields = request()->validate([  //para validar información
             'Titulo' => 'required',
             'Pregunta' => 'required',
         ]);*/
@@ -53,7 +56,6 @@ class RetoController extends Controller
         ]);
         return redirect("retos/");
     }
-
     /**
      * Display the specified resource.
      *
@@ -64,7 +66,7 @@ class RetoController extends Controller
     {
         $reto = Reto::find($reto)->toArray();
         //return view('retos.index')->with(['retos'=>$lis_retos]);
-        return view('retos.show',compact('reto'));
+        return view('retos.show', compact('reto'));
     }
 
     /**
@@ -75,7 +77,7 @@ class RetoController extends Controller
      */
     public function edit(Reto $reto)
     {
-        return view('retos.update',['reto'=>$reto]);
+        return view('retos.update', ['reto' => $reto]);
     }
 
     /**
