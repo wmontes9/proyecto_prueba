@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('retos/getretos','RetoController@getretos')->name('getretos');
+Route::resource("publicidad","PublicidadController");
 Route::resource("retos","RetoController");
 
 Route::get('buscar','Aliados_estrategicosController@buscar')->name('buscar');
