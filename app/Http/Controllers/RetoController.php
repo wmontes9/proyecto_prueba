@@ -1,10 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 use App\Reto;
-use Illuminate\Http\Request;
+use App\User;
 use DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RetoController extends Controller
 {
@@ -13,21 +18,45 @@ class RetoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+       // $this->middleware('auth')->only('update','store');
+    }
     public function index()
     {
-        //$lis_retos = Reto::all()->toArray();
-        //return view('retos.index')->with(['retos'=>$lis_retos]);
-        //return view('retos.index',compact('lis_retos'));
-        return view('retos.index_vue');
+        return view("admin.Reto.list");
+        
     }
-
-    public function getretos()
-    {
-
-        $retos = Reto::all()->toArray();
+    /**
+     * Obtener todos los retos 
+     * formulados
+     */
+    public function getretos(){
+        //$programas = DB::table("Programa")->select("*")->get()->toArray(); 
+        //$competencias = DB::table("Competencia")->select("*")->get()->toArray(); 
+        //$data = array($programas,$competencias);
+        //return  response()->json($data,200);
+        $retos = reto::all()->toArray();
         $data = $retos;
-        return  response()->json($data, 200);
+        return  response()->json($data,200);
     }
+    /**
+     * Abrir la vista de retos 
+     * por usuario
+     */
+    public function retosUsuario()
+    {
+        return view('usuarios.retos.index');
+    }
+    /**
+     * Obtener los retos para
+     * el usuario autenticado
+     */
+    public function getRetosUsuario(){        
+        return Auth::user()->retos->toJson();
+    }
+    public function getinfo(){
+        return view("retos.list"); 
+        }
     /**
      * Show the form for creating a new resource.
      *
@@ -35,7 +64,8 @@ class RetoController extends Controller
      */
     public function create()
     {
-        return view('retos.create');
+        dd("store");
+        //
     }
 
     /**
@@ -45,17 +75,36 @@ class RetoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        /* $fields = request()->validate([  //para validar información
-            'Titulo' => 'required',
-            'Pregunta' => 'required',
-        ]);*/
-        Reto::create([
-            "Titulo" => $request["titulo"],
-            "Pregunta" => $request["pregunta"],
-        ]);
-        return redirect("retos/");
+    {       
+        $reto = new reto;        
+        $file = $request->url_imagen->store('public/imgReto');        
+        $nombre = explode('/',$file);
+        $reto->titulo = $request->titulo;
+        $reto->pregunta = $request->pregunta;
+        $reto->necesidad = $request->necesidad;
+        $reto->causa = $request->causa;
+        $reto->consecuencia = $request->consecuencia;
+        $reto->interesados = $request->interesados;
+        $reto->tiempo_ejecucion = $request->tiempo_ejecucion;
+        $reto->lugar = $request->lugar;
+        $reto->condicion_e = $request->condicion_e;
+        $reto->p_solucion = $request->p_solucion;
+        $reto->alcance = $request->alcance;
+        $reto->condicion_p = $request->condicion_p;
+        $reto->accion = $request->accion;
+        $reto->conocimiento = $request->conocimiento;
+        $reto->elementos = $request->elementos;
+        $reto->descripcion_s = $request->descripcion_s;
+        $reto->evaluacion = $request->evaluacion;
+        $reto->url_imagen=$nombre[2];
+        $reto->estado="inactivo";
+        $reto->save();
+
+        $reto->usuarios()->sync(Auth::user()->id_usuario);
+        
+        return redirect()->back();
     }
+
     /**
      * Display the specified resource.
      *
@@ -64,9 +113,7 @@ class RetoController extends Controller
      */
     public function show(Reto $reto)
     {
-        $reto = Reto::find($reto)->toArray();
-        //return view('retos.index')->with(['retos'=>$lis_retos]);
-        return view('retos.show', compact('reto'));
+        //
     }
 
     /**
@@ -77,7 +124,8 @@ class RetoController extends Controller
      */
     public function edit(Reto $reto)
     {
-        return view('retos.update', ['reto' => $reto]);
+        dd("edit");
+        //
     }
 
     /**
@@ -87,25 +135,147 @@ class RetoController extends Controller
      * @param  \App\Reto  $reto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reto $reto)
+    public function update(Request $request, $id)
     {
-        $reto = Reto::find($reto->id);
-        $reto->Titulo = $request->titulo;
-        $reto->Pregunta = $request->pregunta;
+       // dd(Str::after($file,'/'));
+       $reto = reto::findOrFail($id);  
+       if($request->hasFile('url_imagen_e')){
+            Storage::delete('public/imgReto/'.$reto->url_imagen);
+            $file = $request->file('url_imagen_e')->store('public/imgReto');
+            //$file = $request->url_imagen_e->store('imgReto');
+            $nombre = explode('/',$file);
+            
+            if($file){
+                $reto->url_imagen = $nombre[2];
+            }
+       }   
+        $reto->titulo = $request->titulo;
+        $reto->pregunta = $request->pregunta;
+        $reto->necesidad = $request->necesidad;
+        $reto->causa = $request->causa;
+        $reto->consecuencia = $request->consecuencia;
+        $reto->interesados = $request->interesados;
+        $reto->tiempo_ejecucion = $request->tiempo_ejecucion;
+        $reto->lugar = $request->lugar;
+        $reto->condicion_e = $request->condicion_e;
+        $reto->p_solucion = $request->p_solucion;
+        $reto->alcance = $request->alcance;
+        $reto->condicion_p = $request->condicion_p;
+        $reto->accion = $request->accion;
+        $reto->conocimiento = $request->conocimiento;
+        $reto->elementos = $request->elementos;
+        $reto->descripcion_s = $request->descripcion_s;
+        $reto->evaluacion = $request->evaluacion;
         $reto->save();
-        return redirect("retos/");
+        return redirect('admin/retos');
     }
 
+    public function actualizarReto(Request $request, $id)
+    {
+       // dd(Str::after($file,'/'));
+       $reto = reto::findOrFail($id);  
+       if($request->hasFile('url_imagen_e')){
+            Storage::delete('public/imgReto/'.$reto->url_imagen);
+            $file = $request->file('url_imagen_e')->store('public/imgReto');
+            //$file = $request->url_imagen_e->store('imgReto');
+            $nombre = explode('/',$file);
+            
+            if($file){
+                $reto->url_imagen = $nombre[2];
+            }
+       }   
+        $reto->titulo = $request->titulo;
+        $reto->pregunta = $request->pregunta;
+        $reto->necesidad = $request->necesidad;
+        $reto->causa = $request->causa;
+        $reto->consecuencia = $request->consecuencia;
+        $reto->interesados = $request->interesados;
+        $reto->tiempo_ejecucion = $request->tiempo_ejecucion;
+        $reto->lugar = $request->lugar;
+        $reto->condicion_e = $request->condicion_e;
+        $reto->p_solucion = $request->p_solucion;
+        $reto->alcance = $request->alcance;
+        $reto->condicion_p = $request->condicion_p;
+        $reto->accion = $request->accion;
+        $reto->conocimiento = $request->conocimiento;
+        $reto->elementos = $request->elementos;
+        $reto->descripcion_s = $request->descripcion_s;
+        $reto->evaluacion = $request->evaluacion;
+        $reto->save();
+        return redirect('retos/usuario');
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Reto  $reto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reto $reto)
+    public function destroy($reto)
     {
-        $reto = Reto::find($reto->id);
+        $reto = reto::find($reto);
         $reto->delete();
-        return redirect('retos/');
+       // $solucion = Solucion::where("id_reto","=",$reto)->select("*")->get();
+       $cant = 0;
+        /*if($cant==0){
+            $id = md5("reto".$reto);*/
+            //Storage::delete("imgreto/".$id.".jpg");
+            //Reto::destroy($reto);
+        return $cant;
+        /*}else{
+            return $cant;
+        }*/
+    }
+    public function listretos(){
+        return view("retos.list");
+    }
+    /**
+     * Retorna la vista de retos por
+     * empresa.
+     * @return view
+     */
+    public function retosEmpresa()
+    {                
+        //dd($this->getRetosEmpresa(Auth::user()->instituciones->pluck('id_institucion')->first()));
+        return view('usuarios.retos.retosEmpresa.index',[
+            'retosEmpresa' => $this->getRetosEmpresa(Auth::user()->instituciones->pluck('id_institucion')->first())
+        ]);
+    }
+    /**
+     * Obtener los retos 
+     * de los usuarios asociados a 
+     * una institucion 
+     * 
+     * @param int id_empresa
+     * @return mixed
+     */
+    public function getRetosEmpresa($id)
+    {
+        return user::with([
+            'retos', 
+            'instituciones' => function($query) use ($id){
+                $query->select('usuario_grupo.estado')->where('usuario_grupo.id_institucion', '=', $id);
+            }
+            ])->whereHas('instituciones', function($query) use ($id){
+                $query->where('usuario_grupo.id_institucion', '=', $id);
+        })->get();
+    }
+    /**
+     * Publicar Reto
+     * @return
+     */
+    public function publicarReto($id)
+    {
+        $reto = reto::findOrFail($id);
+        $reto->estado = "activo";
+        $reto->save();
+        return;
+    }
+    /**
+     * Obtener retos publicados
+     * @return App\Reto
+     */
+    public function getRetosPublicados()
+    {
+        return reto::where('estado', '=', 'activo')->get();
     }
 }
