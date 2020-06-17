@@ -12,10 +12,10 @@ class AliadosEstrategicos extends Model
 
     //Scope
 
-    /* public function scopeName($query , $created_at)
+   /*  public function scopeName($query , $fecha)
     {
-        if($created_at)
-        return $query->whereBetween('created_at', [, ]);
+        if($fecha)
+        return $query->whereBetween('created_at', ['fecha_inicial','fecha_final']);
     }  */
     
 

@@ -21,12 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('retos/getretos','RetoController@getretos')->name('getretos');
 Route::resource("retos","RetoController");
 
-Route::get('buscar','Aliados_estrategicosController@buscar')->name('buscar');
 Route::get('buscar_formulario','Aliados_estrategicosController@formulario')->name('buscar_formulario');
+Route::get('buscar','Aliados_estrategicosController@buscar')->name('buscar');
 Route::resource('aliados_estrategicos','Aliados_estrategicosController')
     ->names('aliados_estrategicos')
     ->parameters(['aliados_estrategicos' => 'lis_aliados']); 
 
-/* Route::resource('buscar','BuscarController')
-    ->names('buscar')
-    ->parameters(['buscar' => 'lis']); */
+

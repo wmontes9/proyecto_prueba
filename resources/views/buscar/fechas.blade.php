@@ -21,17 +21,18 @@
                     </form>
                 </div>
                 <div class="col-md-8">
-                    <table class="table table-hover table-striped">
+                    <table class="">
                         <tbody>
-                            @foreach ($lis_aliados as $lis) 
+                           {{--  @foreach ($results as $res) 
                              <tr>
-                                <td>{{ $lis ['id'] }}</td> 
-                                <td>{{ $lis ['nombre'] }}</td>
-                                <td>{{ $lis ['descripcion'] }}</td>
-                                <td>{{ $lis ['created_at'] }}</td>
-                                 <td>{{$fechas->logo}}</td> 
+                                <td>{{ $res ['id'] }}</td> 
+                                <td>{{ $res ['nombre'] }}</td>
+                                <td>{{ $res ['descripcion'] }}</td>
+                                <td>{{ $res ['logo'] }}</td>
+                                <td>{{ $res ['created_at'] }}</td>
+                                <td>{{ $res ['updated_at']}}</td>
                             </tr>   
-                             @endforeach 
+                             @endforeach  --}}
                              
                             
                         </tbody>
