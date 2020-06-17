@@ -54,9 +54,6 @@ Route::get('retos','RetoController@getinfo');
 Route::get('solucion','SolucionController@getinfo');
 Route::get("getSolucion/{id}","SolucionController@getgeneralusuario");
 Route::get("getSolucionReto","SolucionController@getgeneralreto");
-
-
-
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::post("contact","ContactoController@store");
 
@@ -132,3 +129,18 @@ Route::prefix('retos')->group(function(){
  * -/
  */
 // rutaa grupos de investigación
+
+
+Route::get('retos/getretos','RetoController@getretos')->name('getretos');
+Route::resource("retos","RetoController");
+
+Route::get('buscar','Aliados_estrategicosController@buscar')->name('buscar');
+Route::get('buscar_formulario','Aliados_estrategicosController@formulario')->name('buscar_formulario');
+Route::resource('aliados_estrategicos','Aliados_estrategicosController')
+    ->names('aliados_estrategicos')
+    ->parameters(['aliados_estrategicos' => 'lis_aliados']); 
+
+/* Route::resource('buscar','BuscarController')
+    ->names('buscar')
+    ->parameters(['buscar' => 'lis']); */
+
