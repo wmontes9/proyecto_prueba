@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use DB; 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+//use Illuminate\Support\Facades\DB;
 
 use App\AliadosEstrategicos;
 
@@ -149,18 +150,16 @@ class Aliados_estrategicosController extends Controller
         $fec_ini = $request->input("fecha_inicial");
         $fec_fin = $request->input("fecha_final");
 
-        /* $results = AliadosEstrategicos::whereBetween('created_at', [ $fec_ini , $fec_fin ]);
-        return $results; */
-    
-         /* $results = DB::select('SELECT * FROM aliados_estrategicos 
-                                WHERE created_at 
-                                BETWEEN "$fec_ini" AND "$fec_fin" '); 
-           */  
+        $results = AliadosEstrategicos::whereBetween('created_at', [ $fec_ini , $fec_fin ])->get();
         
-        $results = DB::table('aliados_estrategicos')->select('select * from aliados_estrategicos 
-                                                            where created_at BETWEEN [$fec_ini] and [$fec_fin]');        
-        return $results;
-        //return view('buscar.fechas', compact('results'));
+         /*  $results = DB::select('SELECT * FROM aliados_estrategicos 
+                                WHERE created_at 
+                                BETWEEN "$fec_ini" AND "$fec_fin" '); */ 
+           
+        /* $results = DB::table('aliados_estrategicos')->select('select * from aliados_estrategicos 
+                                                            where created_at BETWEEN [$fec_ini] and [$fec_fin]')->get(); */        
+        
+        return view('buscar.fechas', compact('results'));
         
 
     }

@@ -23,16 +23,16 @@
                 <div class="col-md-8">
                     <table class="">
                         <tbody>
-                           {{--  @foreach ($results as $res) 
+                            @foreach ($results as $res) 
                              <tr>
                                 <td>{{ $res ['id'] }}</td> 
                                 <td>{{ $res ['nombre'] }}</td>
                                 <td>{{ $res ['descripcion'] }}</td>
-                                <td>{{ $res ['logo'] }}</td>
-                                <td>{{ $res ['created_at'] }}</td>
-                                <td>{{ $res ['updated_at']}}</td>
+                                <td><img src="images/{{ $res['logo'] }}" width="30" height="20" ></td>
+                                <td>{{ $res ['created_at'] }}</>
+                                
                             </tr>   
-                             @endforeach  --}}
+                             @endforeach 
                              
                             
                         </tbody>
