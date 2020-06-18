@@ -21,18 +21,20 @@
                     </form>
                 </div>
                 <div class="col-md-8">
-                    <table class="">
+                    <table>
                         <tbody>
-                            @foreach ($results as $res) 
-                             <tr>
-                                <td>{{ $res ['id'] }}</td> 
-                                <td>{{ $res ['nombre'] }}</td>
-                                <td>{{ $res ['descripcion'] }}</td>
-                                <td><img src="images/{{ $res['logo'] }}" width="30" height="20" ></td>
-                                <td>{{ $res ['created_at'] }}</>
-                                
-                            </tr>   
-                             @endforeach 
+                            @isset($results)
+                            @foreach($results as $res) 
+                            <tr>
+                               <td>{{ $res->id }}</td> 
+                               <td>{{ $res->nombre }}</td>
+                               <td>{{ $res->descripcion }}</td>
+                               <td><img src="images/{{ $res->logo }}" width="30" height="20" ></td>
+                               <td>{{ $res->created_at }}</td>
+                           </tr>   
+                            @endforeach
+                            @endisset
+                            
                              
                             
                         </tbody>
