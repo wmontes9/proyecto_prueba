@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [        
-        'id_identificacion', 'nombre', 'apellido',
+        'id_municipio','nombre', 'apellido', 'tipo_documento',
         'num_identificacion', 'direccion', 'telefono',
         'email', 'password','nombre_usuario'
     ];
@@ -41,24 +41,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function tiposIdentificacion()
+    public function municipio()
     {
-        return $this->belongsTo(TipoIdentificacion::class,'tipos_identicacion');
-    }
-
-    public function roles()
-    {
-        return $this->belongsToMany(Rol::class, 'usuario_rol', 'id_usuario', 'id_rol');
-    
+        return $this->belongsTo(Municipio::class,'id_municipio');
     }
     public function grupos()
     {
-        return $this->belongsToMany(Grupo::class,'usuario_grupo', 'id_usuario', 'id_grupo')->withPivot('id_institucion','estado','rol');
-    }
-    public function instituciones()
-    {
-        return $this->belongsToMany(Institucion::class, 'usuario_grupo', 'id_usuario', 'id_institucion')->withPivot('id_institucion','estado','rol');
+        return $this->belongsToMany(Grupo::class,'usuario_grupo', 'id_usuario', 'id_grupo')->withPivot('estado','rol');
     }
     public function semilleros()
     {
@@ -67,5 +56,9 @@ class User extends Authenticatable
     public function retos()
     {
         return $this->belongsToMany(Reto::class, 'reto_usuarios', 'id_usuario', 'id_reto');
+    }
+    public function institucion()
+    {
+        return $this->belongsToMany('App\Institucion');
     }
 }

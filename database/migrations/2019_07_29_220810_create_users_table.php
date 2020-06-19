@@ -13,27 +13,27 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        if(Schema::hasTable('tipos_identificacion')){
-            Schema::create('usuarios', function (Blueprint $table) {
-                $table->unsignedBigInteger('id_usuario')->autoIncrement();
-                $table->unsignedBigInteger('id_identificacion');
-                $table->string('nombre');
-                $table->string('apellido');            
-                $table->string("num_identificacion");
-                $table->text('direccion');
-                $table->string('telefono'); 
-                $table->string('nombre_usuario');
-
-                $table->string('email')->unique();
-                $table->timestamp('email_verified_at')->nullable();
-                $table->string('password');
-                $table->rememberToken();
-                $table->timestamps();
-                $table->string('estado')->default('activo');
-
-                $table->foreign('id_identificacion')->references('id_tipo_identificacion')->on('tipos_identificacion');
-            });
-        }
+        
+        Schema::create('usuarios', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_usuario')->autoIncrement();
+            $table->unsignedBigInteger('id_municipio');
+            $table->string('nombre');
+            $table->string('apellido');
+            $table->string('tipo_documento');            
+            $table->string("num_identificacion");
+            $table->text('direccion');
+            $table->string('telefono'); 
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->string('estado')->default('activo');
+            $table->boolean('administrador');
+            $table->boolean('staf');
+            $table->boolean('activo');
+            $table->rememberToken();
+            $table->timestamps();
+            $table->foreign('id_municipio')->references('id_municipio')->on('municipios');
+        });
     }
 
     /**

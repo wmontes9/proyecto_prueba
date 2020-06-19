@@ -19,12 +19,16 @@ class Institucion extends Model
     {
         return $this-> belongsToMany(Municipio::class,'sede')->withPivot('Nombre', 'Direccion', 'Telefono')->withTimestamps();
     }
-    public function usuarios(){
-        return $this->belongsToMany(User::class,'usuario_grupo','id_institucion','id_usuario');
+    public function usuario()
+    {
+        return $this->belongsToMany('App\User');
     }
-    public function grupos()
+  /*  public function usuarios(){
+        return $this->belongsToMany(User::class,'usuario_grupo','id_institucion','id_usuario');
+    }*/
+    /*public function grupos()
     {
         return $this->belongsToMany(Grupo::class, 'usuario_grupo', 'id_institucion', 'id_grupo');
-    }
+    }*/
 
 }
