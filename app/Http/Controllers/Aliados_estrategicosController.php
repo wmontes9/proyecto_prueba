@@ -68,6 +68,7 @@ class Aliados_estrategicosController extends Controller
         $lis_aliados->nombre = $request->input('nombre');
         $lis_aliados->descripcion = $request->input('descripcion');
         $lis_aliados->logo = $name;
+        $lis_aliados->url = $request->input('url');
         $lis_aliados->save();
         
         return redirect()->route('aliados_estrategicos.index');

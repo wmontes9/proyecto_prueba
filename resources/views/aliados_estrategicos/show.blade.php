@@ -27,6 +27,7 @@
                             <th>Nombre</th>
                             <th>Descripcion</th>
                             <th>Logo</th>
+                            <th>Url</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,7 +35,8 @@
                             <td>{{ $lis_aliados->id }}</td>
                             <td>{{$lis_aliados->nombre}}</td>
                             <td>{{$lis_aliados->descripcion}}</td>
-                            <td><img src="/images/{{ $lis_aliados['logo'] }}" width="30" height="20" ></td>                                  
+                            <td><img src="/images/{{ $lis_aliados['logo'] }}" width="30" height="20" ></td>  
+                            <td>{{$lis_aliados->url}}</td>                                
         
                         </tr>
                 {{--  @endforeach --}}

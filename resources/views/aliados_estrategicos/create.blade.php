@@ -27,6 +27,10 @@
                         <label>Logo</label>
                         <input class="form-control" type="file" name="logo" required>
                     </div>
+                    <div class="form-group">
+                        <label>Url</label>
+                        <input class="form-control" type="text" name="url" required>
+                    </div>
                     <button>Guardar</button>
                 </form>
                 

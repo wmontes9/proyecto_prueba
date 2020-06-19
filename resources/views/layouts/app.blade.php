@@ -10,14 +10,30 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-
+    
     <script src="{{ asset('js/app.js')  }}" ></script>
+    {{-- datatables --}}
+    <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js" ></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js" ></script>
+    <script>
+    $(document).ready(function() {
+        $('#buscar').dataTable( {
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+            }
+        } );
+    } );
+    </script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+   {{--  datatables --}}
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
