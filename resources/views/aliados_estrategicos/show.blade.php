@@ -9,14 +9,13 @@
                 {{--  @foreach($reto as $values) --}}
                 <div class="card-header">Aliados</div>
                 <div class="row">
-                    <div class="col-md-7">
-                    </div>
+                    <div class="col-md-7"></div>
                     <div class="col-md-5">
-                        <a class="btn btn-small btn-info" href="{{ route('aliados_estrategicos.edit', $lis_aliados)}}">Editar</a>
+                        <a class="btn btn-small btn-info" style="padding: 5px;" href="{{ route('aliados_estrategicos.edit', $lis_aliados)}}">Editar</a>
                         <form action="{{ route('aliados_estrategicos.destroy', $lis_aliados) }}" method="POST">
                             @method('DELETE')
                             @csrf
-                            <button type="submit">Eliminar</button>
+                            <button type="submit" class="btn btn-small btn-info" style="padding: 5px;" >Eliminar</button>
                         </form>
                     </div>
                 </div>

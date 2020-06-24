@@ -44,19 +44,6 @@ class Aliados_estrategicosController extends Controller
      */
     public function store(Request $request)
     {
-        /* $fields = request()->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
-            'logo' => 'required',
-        ]);
-        AliadosEstrategicos::create($fields); */ 
-
-        /*  AliadosEstrategicos::create([
-            'nombre' => request('nombre'),
-            'descripcion' => request('descripcion'),
-            'logo' => request('logo'), 
-    
-        ]); */
 
         if($request->hasFile('logo')){
             $file = $request->file('logo');
@@ -110,12 +97,6 @@ class Aliados_estrategicosController extends Controller
      */
     public function update(Request $request, AliadosEstrategicos  $lis_aliados)
     {
-        /* $lis_aliados->update([
-            'nombre' => request('nombre'),
-            'descripcion' => request('descripcion'),
-            'logo' => request('logo'),
-        ]); */
-
         $lis_aliados->fill($request->except('logo'));
         if($request->hasFile('logo')){
             $file = $request->file('logo');
@@ -152,8 +133,7 @@ class Aliados_estrategicosController extends Controller
         $fec_fin = $request->input("fecha_final");
 
         $results = AliadosEstrategicos::whereBetween('created_at', [ $fec_ini , $fec_fin ])->get();       
-        
-        
+
         return view('buscar.fechas', compact('results'));
         
 
