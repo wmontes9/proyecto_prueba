@@ -1,0 +1,27 @@
+body > div{
+    position: relative;    
+    background-image: url('../img/INTERFAZ login-01-01.png') !important;
+    background-size: cover;
+    background-attachment: fixed;    
+    background-repeat: no-repeat;    
+}
+canvas#stars{
+    position: absolute;    
+    top: 0px;
+    left: 0px;      
+    z-index:-1;    
+    background-color: rgb(34, 17, 80); 
+}
+.bg-sky{
+    background: linear-gradient(120deg, rgb(58, 36, 92) 50%,rgb(54, 21, 105) 50%);    
+}
+.login{
+    width: 600px;
+    margin-left: 17%;
+}
+@media (max-width:600px){
+    .login{
+        width: 600px;
+        margin-left: auto;
+    }   
+}

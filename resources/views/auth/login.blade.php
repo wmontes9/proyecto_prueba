@@ -1,16 +1,13 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
+        <div class="modal fade" id="login">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="text-center">Inicio de sesión</h3>
+                        <button class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -64,10 +61,17 @@
                                 @endif
                             </div>
                         </div>
-                    </form>
+                        <hr/>   
+                        ¿No se encuentra registrado? <a href="{{ url('/register') }}" class="btn btn-link"> Registrarse</a>                     
+                        <!--<div class="w-100">
+                            <a href="{{ url('login/google') }}" class="btn btn-primary btn-sm border border-primary p-0 pr-2">
+                            <img src="{{ asset('webfonts/btn_google_dark_normal_ios.svg') }}">
+                                <strong>Login With Google</strong>
+                            </a>
+                        </div>-->
+                    </div> 
                 </div>
             </div>
         </div>
-    </div>
-</div>
-@endsection
+    </form>
+               
