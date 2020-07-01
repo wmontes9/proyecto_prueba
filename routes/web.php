@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/',"Controller@index" );
+
+/* Route::get('/', function () {
     return view('welcome'); // pagina princial
-});
+}); */
 Route::resource("admin/solucion","SolucionController");
 Route::get("admin/getSolucion","SolucionController@getSoluciones");
 

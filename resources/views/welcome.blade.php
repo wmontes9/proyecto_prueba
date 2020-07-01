@@ -1,5 +1,6 @@
 @extends("layouts.app_inicio")
 
+
 @section("content")
 <div class="container">
 	<div class="row">
@@ -168,10 +169,46 @@
 	</div>
 	<br/>
 	<div class="line"></div>
-	<br/>
-	<h3 class="text-center">Aliados estratégicos</h2>
+    <br/>
+    
+    <h3 class="text-center">Aliados estratégicos</h2>
+        
+    @yield('cd')
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="text-align:center;" >
+                <img src="images/sennova2020.png" style="width:80%;" height="200"  alt="...">
+            </div>  
+            @foreach ($lis_aliados as $values)
+            <div class="carousel-item" >
+                <div class="card mb-3" style="width: 80%; margin:auto;" >
+                    <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <a href="{{ $values ['url'] }}"><img src="images/{{ $values['logo'] }}" class="card-img" height="200" ></a>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-decoration:none"><a href="{{route('aliados_estrategicos.show',$values)}}">{{ $values['nombre'] }}</a></h5>
+                            <p class="card-text">{{$values['descripcion']}}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>  
+            @endforeach 
+            <a class="carousel-control-prev" href="#carouselExampleControls"  role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon"  aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div> 
  
-	<div id="bs4-multi-slide-carousel" class="carousel slide" data-ride="carousel" >
+	{{-- <div id="bs4-multi-slide-carousel" class="carousel slide" data-ride="carousel" >
 	<div class="carousel-inner">
 		<div class="carousel-item active">
 			<div class="row">
@@ -210,7 +247,9 @@
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="sr-only">Next</span>
 		</a>
-	</div>
+    </div> --}}
+    
+
 	<div class="row">
 	<div class="line"></div>
 	<br/>

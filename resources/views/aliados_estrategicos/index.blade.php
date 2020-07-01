@@ -1,5 +1,11 @@
+@extends('welcome')
 @extends('layouts.app')
 
+
+@section('cd') 
+    <h1>Hola</h1>
+    <hr>
+@endsection 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -15,6 +21,7 @@
                 </div>
                 
                 <div class="container">
+                 
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" style="text-align:center;" >
@@ -46,7 +53,8 @@
                             <span class="sr-only">Next</span>
                         </a>
                       </div>
-                    </div>   
+                    </div> 
+                       
                 </div>
 
                 <table id="buscar" class="table table-striped table-bordered">

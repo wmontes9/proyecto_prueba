@@ -18,12 +18,14 @@ class Aliados_estrategicosController extends Controller
      */
     public function index()
     {
-       /*  $lis_aliados = AliadosEsrtrategicos::all()->toArray();
-        return view('aliados_estrategicos.index',compact('lis_aliados')); */
+        /* $lis_aliados = AliadosEsrtrategicos::all()->toArray();
+        return view('welcome',compact('lis_aliados')); */
 
         return view('aliados_estrategicos.index',[
             'lis_aliados' => AliadosEstrategicos::all()->toArray()
         ]);
+
+        
     }
 
     /**
