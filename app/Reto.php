@@ -32,5 +32,8 @@ class Reto extends Model
     {
         return $this->belongsToMany(User::class, 'reto_usuarios', 'id_reto', 'id_usuario');
     }
-    
+    public function sector_economico()
+    {
+        return $this->belongsToMany(Sector_Economico::class,'reto_sector_economico','id_reto', 'id_sector_economico');
+    }
 }

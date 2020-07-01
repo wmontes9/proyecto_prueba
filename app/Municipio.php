@@ -19,5 +19,12 @@ class Municipio extends Model
     {
         return $this->belongsToMany(Institucion::class,'sede')->withPivot('Nombre', 'Direccion', 'Telefono')->withTimestamps();
     }
-    
+    public function usuario()
+    {
+        return $this->belongsToMany('App\User');
+    }
+    public function usuarios()
+    {
+        return $this->hasMany(User::class, 'id_usuario');
+    }
 }

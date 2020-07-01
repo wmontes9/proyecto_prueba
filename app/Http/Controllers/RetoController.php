@@ -23,6 +23,9 @@ class RetoController extends Controller
     }
     public function index()
     {
+       // $now = new \DateTime();
+       // $fecha_formato = $now->format('d-m-Y H:i:s');
+       // dd($fecha_formato);
         return view("admin.Reto.list");
         
     }
