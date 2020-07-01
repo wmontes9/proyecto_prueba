@@ -52,8 +52,10 @@
 				</a>
 			</div>
 		</div>
-	</div>
-	<div class="line"></div>
+    </div>
+    <br>
+    <hr>
+    <br>
 	<!-- <div class="row">
 		<div class="col-md-12 text-center">
 			<iframe width="70%" height="392" src="https://www.youtube.com/embed/wOqV8JrOAhY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -76,7 +78,7 @@
 		{{-- <img src="{{url('img/quien.jpg')}}" class="img-fluid"> --}}
 		</div>
 	</div>
-	<div class="line"></div>
+	
 	<br/>
 	{{-- <div class="row">
 		<div  class="col-md-3 col-sm-6">
@@ -165,15 +167,13 @@
 		</a>
 		</div>
 	</div> --}}
-	<div class="row" id="contactenos">
-	</div>
-	<br/>
-	<div class="line"></div>
+	<div class="row" id="contactenos"></div>
+    <br/>
+    <hr>
+	{{-- <div class="line"></div> --}}
     <br/>
     
     <h3 class="text-center">Aliados estratégicos</h2>
-        
-    @yield('cd')
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -182,10 +182,10 @@
             </div>  
             @foreach ($lis_aliados as $values)
             <div class="carousel-item" >
-                <div class="card mb-3" style="width: 80%; margin:auto;" >
+                <div class="card mb-3" style="width: 80%; margin:auto;margin-top:10px;">
                     <div class="row no-gutters">
                     <div class="col-md-4">
-                        <a href="{{ $values ['url'] }}"><img src="images/{{ $values['logo'] }}" class="card-img" height="200" ></a>
+                        <a target="_blank" href="{{ $values ['url'] }}"><img src="images/{{ $values['logo'] }}" class="card-img" height="200" ></a>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -207,6 +207,7 @@
             </a>
         </div>
     </div> 
+    <br>
  
 	{{-- <div id="bs4-multi-slide-carousel" class="carousel slide" data-ride="carousel" >
 	<div class="carousel-inner">
@@ -248,10 +249,10 @@
 			<span class="sr-only">Next</span>
 		</a>
     </div> --}}
-    
-
+    <br>
+    <hr>
+    <br>
 	<div class="row">
-	<div class="line"></div>
 	<br/>
 	<div class="col-md-2">
 	</div>

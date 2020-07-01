@@ -1,11 +1,6 @@
-@extends('welcome')
+
 @extends('layouts.app')
-
-
-@section('cd') 
-    <h1>Hola</h1>
-    <hr>
-@endsection 
+ 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -32,7 +27,7 @@
                                 <div class="card mb-3" style="width: 80%; margin:auto;" >
                                     <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <a href="{{ $values ['url'] }}"><img src="images/{{ $values['logo'] }}" class="card-img" height="200" ></a>
+                                        <a target="_blank" href="{{ $values ['url'] }}"><img src="images/{{ $values['logo'] }}" class="card-img" height="200" ></a>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -72,7 +67,7 @@
                             <td>{{ $values ['id'] }}</td>
                             <td><a href="{{route('aliados_estrategicos.show',$values)}}">{{ $values['nombre'] }}</a></td>
                             <td>{{$values['descripcion']}}</td>
-                            <td><a href="{{ $values ['url'] }}"><img src="images/{{ $values['logo'] }}" width="90" height="50" ></a> </td>
+                            <td><a target="_blank" href="{{ $values ['url'] }}"><img src="images/{{ $values['logo'] }}" width="90" height="50" ></a> </td>
                 
                         </tr>
                         @endforeach()
