@@ -234,16 +234,30 @@
 							<a class="nav-link" href="{{url('/')}}">Inicio <span class="sr-only">(current)</span></a>
                         </li>
                         @auth
+                        
                         <li class="nav-item">
 							<a class="nav-link" href="{{url('/home')}}">Dashboard</a>
 						</li> 
                         @endauth                        
 						<li class="nav-item">
 							<a class="nav-link" href="{{url('retos')}}">Retos</a>
+                        </li>
+                        <li class="nav-item">
+							<a class="nav-link" href="{{url('blog')}}">Blog</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#contactenos">Contacto</a>
-						</li>
+                        </li>
+                        <!--<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              Dropdown link
+                            </a>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Link 1</a>
+                              <a class="dropdown-item" href="#">Link 2</a>
+                              <a class="dropdown-item" href="#">Link 3</a>
+                            </div>
+                        </li>-->
 						<!-- <li class="nav-item">
 							<a class="nav-link disabled" href="#">Disabled</a>
                         </li> -->

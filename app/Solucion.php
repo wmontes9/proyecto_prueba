@@ -10,8 +10,8 @@ class Solucion extends Model
 
     protected $fillable = ["id_reto","titulo","justificacion","planteamiento","image_solucion","referencias","estado"];
 
-    public function retos(){
-    	return $this->belongsTo("App\Reto");
+    public function reto(){
+        return $this->belongsTo(Reto::class,'id_reto');
     }
     protected $primaryKey = 'id_solucion';
 }

@@ -26,7 +26,7 @@ class VerificarPermisos
     public function handle($request, Closure $next)
     {    
         // dd($this->consultarClavePermisos('instituciones','leer'));
-        if(Auth::user()->roles->pluck('nombre')->contains('Administrador')){
+        if(Auth::user()->grupos->pluck('nombre')->contains('Administrador')){
             return $next($request);
         }
         return (!empty($this->validarPermiso(
@@ -48,7 +48,7 @@ class VerificarPermisos
     }    
     public function obtenerRolesUsuario($auth)
     {
-        return (!empty($auth->roles->toArray()[0]))? $auth->roles[0] : null;
+        return (!empty($auth->grupos->toArray()[0]))? $auth->grupos[0] : null;
     }
     public function consultarClavePermisos($modulo,$metodo)
     {

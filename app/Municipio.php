@@ -7,7 +7,8 @@ use App\Departamento;
 
 class Municipio extends Model
 {
-    protected $table = 'municipio';
+    protected $table = 'municipios';
+    protected $primaryKey = "id_municipio";
 
 
     public function departamento()

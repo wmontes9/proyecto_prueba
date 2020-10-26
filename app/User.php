@@ -21,7 +21,7 @@ class User extends Authenticatable
     protected $fillable = [        
         'id_municipio','nombre', 'apellido', 'tipo_documento',
         'num_identificacion', 'direccion', 'telefono',
-        'email', 'password','nombre_usuario'
+        'email', 'password','administrador','staf','activo'
     ];
 
     /**
