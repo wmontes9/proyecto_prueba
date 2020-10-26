@@ -18,8 +18,4 @@ class Semillero_Invest extends Model
     {
     	return $this->belongsToMany(Sub_Linea_Invest::class, 'sub_linea_semilleros', 'id_semillero', 'id_sub_linea');
     }
-    public function area_conocimiento()
-    {
-        return $this->belongsTo(Area_Conocimiento::class,'id_area_conocimiento');
-    }
 }

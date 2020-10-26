@@ -28,6 +28,10 @@
                         <label>Logo</label>
                         <input class="form-control" type="file" name="logo" value="{{ $lis_aliados->logo }}" required>
                     </div>
+                    <div class="form-group">
+                        <label for="Url"></label>
+                        <input class="form-control" type="text" name="url" value="{{$lis_aliados->url}}" required>
+                    </div>
                     <button>Actualizar</button>
                 </form>
                 

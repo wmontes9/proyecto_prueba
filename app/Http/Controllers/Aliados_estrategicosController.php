@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use DB; 
 use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\DB;
 
 use App\AliadosEstrategicos;
+
 
 class Aliados_estrategicosController extends Controller
 {
@@ -15,12 +18,14 @@ class Aliados_estrategicosController extends Controller
      */
     public function index()
     {
-       /*  $lis_aliados = AliadosEsrtrategicos::all()->toArray();
-        return view('aliados_estrategicos.index',compact('lis_aliados')); */
+        /* $lis_aliados = AliadosEsrtrategicos::all()->toArray();
+        return view('welcome',compact('lis_aliados')); */
 
         return view('aliados_estrategicos.index',[
             'lis_aliados' => AliadosEstrategicos::all()->toArray()
         ]);
+
+        
     }
 
     /**
@@ -41,19 +46,6 @@ class Aliados_estrategicosController extends Controller
      */
     public function store(Request $request)
     {
-        /* $fields = request()->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
-            'logo' => 'required',
-        ]);
-        AliadosEstrategicos::create($fields); */ 
-
-        /*  AliadosEstrategicos::create([
-            'nombre' => request('nombre'),
-            'descripcion' => request('descripcion'),
-            'logo' => request('logo'), 
-    
-        ]); */
 
         if($request->hasFile('logo')){
             $file = $request->file('logo');
@@ -65,6 +57,7 @@ class Aliados_estrategicosController extends Controller
         $lis_aliados->nombre = $request->input('nombre');
         $lis_aliados->descripcion = $request->input('descripcion');
         $lis_aliados->logo = $name;
+        $lis_aliados->url = $request->input('url');
         $lis_aliados->save();
         
         return redirect()->route('aliados_estrategicos.index');
@@ -106,12 +99,6 @@ class Aliados_estrategicosController extends Controller
      */
     public function update(Request $request, AliadosEstrategicos  $lis_aliados)
     {
-        /* $lis_aliados->update([
-            'nombre' => request('nombre'),
-            'descripcion' => request('descripcion'),
-            'logo' => request('logo'),
-        ]); */
-
         $lis_aliados->fill($request->except('logo'));
         if($request->hasFile('logo')){
             $file = $request->file('logo');
@@ -136,13 +123,19 @@ class Aliados_estrategicosController extends Controller
         return redirect()->route('aliados_estrategicos.index');
     }
 
-    public function buscar(Request $request)
-    {
-        dd($request->input('fecha_inicial'));
-    }
-
     public function formulario()
     {
         return view('buscar.fechas');
     }
+
+    public function buscar(Request $request )
+    {
+        //dd($request->input('fecha_inicial'));
+        $fec_ini = $request->input("fecha_inicial");
+        $fec_fin = $request->input("fecha_final");
+        $results = AliadosEstrategicos::whereBetween('created_at', [ $fec_ini , $fec_fin ])->get();       
+        return view('buscar.fechas', compact('results'));
+    }
+
+    
 }

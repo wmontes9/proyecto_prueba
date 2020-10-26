@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\TipoIdentificacion;
+use App\Departamento;
+use App\Municipio;
 
 class RegisterController extends Controller
 {
@@ -53,11 +55,10 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string'],
-            'document_type' => ['required','integer'],
+            'document_type' => ['required', 'string'],
             'number_doc' => ['required','string'],
             'address' => ['required','string'],
             'phone' => ['required'],
-            'nombre_usuario' => ['required','unique:usuarios'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'rol' => ['required','integer'],
@@ -70,7 +71,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    public function create(array $data)
     {
         //$usere = User::findOrFail($data['number_doc']);
         $usere = User::where("num_identificacion","=",$data['number_doc'])->select("*")->get()->toArray();//Consultar si existe algun usuario con este número de identidad
@@ -80,15 +81,18 @@ class RegisterController extends Controller
         $cant = count($usere);
         if($cant==0){ //Si no existe para a crear uno nuevo
             $user = User::create([
+                'id_municipio' => $data['municipio'],
                 'nombre' => $data['name'],
                 'apellido' => $data['lastname'],
-                'id_identificacion' => $data['document_type'],
+                'tipo_documento' => $data['document_type'],
                 'num_identificacion' => $data['number_doc'],
                 'direccion' => $data['address'],
                 'telefono' => $data['phone'],
-                'nombre_usuario' => $data['nombre_usuario'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
+                'administrador' => False,
+                'staf' => False,
+                'activo' => True,
             ]);
         }else{
             $user = User:: find($usere[0]['id_usuario']);
@@ -99,11 +103,20 @@ class RegisterController extends Controller
             }
         }
         $rol = $data['rol'];
-        $user->roles()->attach($rol);
+        //$user->roles()->attach($rol);
         $user->grupos()->attach(Grupo::findOrFail($data['rol']));
         return $user;
     }
     protected function getTiposIdentificacion(){
         return TipoIdentificacion::all();
-    }    
+    } 
+    protected function getDepartamentos(){
+        return Departamento::all();
+    } 
+    protected function getMunicipios($id_departamento){
+        return Municipio::where('id_depto', '=', $id_departamento)->get();
+    }
+    protected function getGrupos(){
+        return Grupo::all();
+    }
 }

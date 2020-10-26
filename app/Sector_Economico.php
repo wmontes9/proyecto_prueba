@@ -12,6 +12,6 @@ class Sector_Economico extends Model
 
     public function retos()
     {
-        return $this->belongsToMany(Sector_Economico::class,'id_reto', 'id_sector_economico');
+        return $this->belongsToMany(Reto::class,'reto_sector_economico', 'id_sector_economico','id_reto');
     }
 }

@@ -12,6 +12,10 @@ class Reto extends Model
 
     protected $fillable = ["titulo","pregunta","causa","necesidad","consecuencia","interesados","tiempo_ejecucion","lugar","condicion_e","p_solucion","alcance","condicion_p","accion","conocimiento","elementos","descripcion_s","evaluacion","url_imagen","estado"];
    
+    public function soluciones()
+    {
+        return $this->hasMany(Solucion::class, 'id_solucion');
+    }
     public function detalle_reto()
     {
     	return $this->hasMany("App\Detalle_Reto");
@@ -24,7 +28,7 @@ class Reto extends Model
     {
         return $this->hasMany("App\Reto_Sector_Economico");
     }
-     public function Calificacion()
+    public function Calificacion()
     {
         return $this->hasMany("App\Calificacion");
     }
