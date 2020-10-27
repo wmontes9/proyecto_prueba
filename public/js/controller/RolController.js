@@ -13,7 +13,7 @@ new Vue({
     },
     methods:{
         getRoles:function(){
-            const url = "/listaRoles";
+            const url = "/listaGruposHome";
             axios.get(url).then(responce => {
                 this.roles = responce.data;                
             });            

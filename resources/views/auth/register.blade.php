@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_inicio')
 
 @section('content')
 <div class="container-fluid" id="registro">
@@ -39,7 +39,10 @@
                                         <label for="type">Tipo de documento</label>
                                         <select name="document_type" id="type" class="form-control">
                                             <option value="">--seleccionar--</option>
-                                            <option v-for="ident_type in identificationTypes" v-bind:value="ident_type.id_tipo_identificacion">(@{{ident_type.abreviatura}}) @{{ident_type.nombre}}</option>
+                                            <option value="CC">Cédula de ciudadanía</option>
+                                            <option value="TI">Tarjeta de identidad</option>
+                                            <option value="CE">Cédula de extranjería</option>
+                                            <!--<option v-for="ident_type in identificationTypes" v-bind:value="ident_type.id_tipo_identificacion">(@{{ident_type.abreviatura}}) @{{ident_type.nombre}}</option>-->
                                         </select>
                                     </div>
                                     <div class="col">
@@ -47,10 +50,27 @@
                                         <input type="text" name="number_doc" id="number_doc" class="form-control" placeholder="Documento" value="{{old('number_doc')}}"/>
                                     </div>
                                 </div>
+                                <div class=" form-group row"> 
+                                    <div class="col-md-6">
+                                        <label for="departamento">Departamento</label>
+                                        <select name="departamento" id="departamento" class="form-control" @change="onChange()">
+                                            <option value="">--Seleccionar--</option>
+                                            <option v-for="departamento in departamentos" v-bind:value="departamento.id_departamento">@{{departamento.nombre}}</option>
+                                        </select>
+                                    </div>
+                                    <!--<a href="" v-on:click.prevent="deleteReto(reto.id_reto)">-->
+                                    <div class="col-md-6">
+                                        <label for="municipio">Municipio</label>
+                                        <select name="municipio" id="municipio" class="form-control">
+                                            <option value="">--Seleccionar--</option>
+                                            <option v-for="municipio in municipios" v-bind:value="municipio.id_municipio">@{{municipio.nombre}}</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <label for="address">Dirección</label>
-                                        <textarea name="address" id="address" cols="30" rows="4" class="form-control" >{{old('address')}}</textarea>
+                                        <input type="text" name="address" id="address" class="form-control" value="{{old('address')}}"/>
                                     </div>    
                                     <div class="col-md-6">
                                         <label for="phone">Teléfono</label>
@@ -61,12 +81,6 @@
                             <div id="account_data"> 
                                 <h2 class="h3">Datos de la cuenta</h3>
                                 <hr/>
-                                <div class="form-group row">
-                                    <div class="col">
-                                        <label for="user">Nombre de usuario</label>
-                                        <input type="text" name="nombre_usuario" id="user" class="form-control" value="{{old('user_name')}}"/>    
-                                    </div>    
-                                </div>
                                 <div class="form-group row">
                                     <div class="col">
                                         <label for="email">Correo electrónico</label>
@@ -94,7 +108,7 @@
                                         <label for="rol">Rol</label>
                                         <select name="rol" id="rol" class="form-control ">
                                             <option value="">--Seleccionar--</option>
-                                            <option v-if="rol.nombre != 'Administrador'" v-for="rol in roles" v-bind:value="rol.id_rol">@{{rol.nombre}}</option>
+                                            <option v-if="rol.nombre != 'Administrador'" v-for="rol in roles" v-bind:value="rol.id_grupo">@{{rol.nombre}}</option>
                                         </select>
                                     </div>
                                     <div class="col d-flex justify-content-end align-items-end">

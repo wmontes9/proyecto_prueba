@@ -15,14 +15,11 @@ class CreateSemilleroInvestsTable extends Migration
     {
         Schema::create('semillero_invests', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_area_conocimiento')->index(); 
             $table->string("nombre",100);
             $table->string("sigla",10);
             $table->text("logo");
             $table->rememberToken();
             $table->timestamps();
-
-            $table->foreign('id_area_conocimiento')->references('id_area_conocimiento')->on('area_conocimientos');
         });
     }
 

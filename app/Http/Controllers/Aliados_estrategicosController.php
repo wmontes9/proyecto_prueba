@@ -133,12 +133,8 @@ class Aliados_estrategicosController extends Controller
         //dd($request->input('fecha_inicial'));
         $fec_ini = $request->input("fecha_inicial");
         $fec_fin = $request->input("fecha_final");
-
         $results = AliadosEstrategicos::whereBetween('created_at', [ $fec_ini , $fec_fin ])->get();       
-
         return view('buscar.fechas', compact('results'));
-        
-
     }
 
     

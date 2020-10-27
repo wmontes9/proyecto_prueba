@@ -16,8 +16,8 @@ class ChequearRol
      */
     public function handle($request, Closure $next)
     {                 
-        foreach(Auth::user()->roles->all() as $rol){  
-            if($rol->id_rol == $request->session()->get('rolActual')){                
+        foreach(Auth::user()->grupos->all() as $rol){  
+            if($rol->id_grupo == $request->session()->get('rolActual')){                
                 return $next($request);
             }            
         }

@@ -20,7 +20,18 @@ Route::resource("admin/solucion","SolucionController");
 Route::get("admin/getSolucion","SolucionController@getSoluciones");
 
 Route::get('/listaTiposId', 'Auth\RegisterController@getTiposIdentificacion'); // lista tipos de identificación
-Route::get('/listaRoles', 'RolController@getRoles'); //Lista de roles
+Route::get('/listaGrupos', 'Auth\RegisterController@getGrupos'); //Lista de roles
+Route::get('/listaDepartamentos', 'Auth\RegisterController@getDepartamentos');
+Route::get("listaMunicipios/{id}","Auth\RegisterController@getMunicipios");
+Route::get("/listaSectores","SectorEconomicoController@getSectores");
+Route::get("RetosSector/{id}","SectorEconomicoController@RetosSector");
+Route::get("SolucionesReto/{id}","SectorEconomicoController@SolucionesReto");
+Route::get("listaSolucionesReto","SectorEconomicoController@getSolucionesReto");
+//Route::get("RetosSector","SectorEconomicoController@viewRetosSector");
+Route::get("listaRetosSector","SectorEconomicoController@getRetosSector");
+Route::resource("SectorEconomico","SectorEconomicoController");
+
+
 
 Auth::routes();
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle'); // logeo google
@@ -84,7 +95,7 @@ Route::middleware(['admin'])->group(function(){
         Route::get('/consultar/{id}','PermisosController@listaPermisosPorGrupo')->name('consulta');
         Route::delete('/remover','PermisosController@remover')->name('removerPermisos');
     });        
-    Route::resource("innovacion","innovacionController");
+   // Route::resource("innovacion","innovacionController");
     Route::resource("admin/solucion","SolucionController");    
     //
 });
