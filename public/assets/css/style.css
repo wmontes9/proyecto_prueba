@@ -806,7 +806,7 @@ section {
   position: relative;
 }
 
-.about .about-img::before {
+/* .about .about-img::before {
   position: absolute;
   left: 20px;
   top: 20px;
@@ -830,7 +830,7 @@ section {
   border-right: 5px solid #cda45e;
   border-bottom: 5px solid #cda45e;
   transition: .5s;
-}
+}*/
 
 .about .about-img:hover {
   transform: scale(1.03);
@@ -971,7 +971,9 @@ section {
 }
 
 .menu .menu-content::after {
-  content: "......................................................................" "...................................................................." "....................................................................";
+  content: "......................................................................"
+ "...................................................................."
+ "....................................................................";
   position: absolute;
   left: 20px;
   right: 0;

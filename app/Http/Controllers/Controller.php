@@ -19,7 +19,6 @@ class Controller extends BaseController
 
     $lis_aliados = AliadosEstrategicos::all()->toArray();
         return view('welcome',compact('lis_aliados'));
-
     }
 
 }

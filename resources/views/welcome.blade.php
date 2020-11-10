@@ -1,26 +1,45 @@
-@extends("layouts.app_inicio")
+<!DOCTYPE html>
+<html lang="en">
 
-<link href="assets/img/favicon.png" rel="icon">
-<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <title>Innexsa</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
 
-<!-- Vendor CSS Files -->
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-<link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-<link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-<link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
-<!-- Template Main CSS File -->
-<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-@section("content")
- <!-- ======= Top Bar ======= -->
- <div id="topbar" class="d-flex align-items-center fixed-top">
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Restaurantly - v1.1.0
+  * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex">
       <div class="contact-info mr-auto">
         <i class="icofont-phone"></i>(+57) 098 7446038)
@@ -54,13 +73,20 @@
           <li><a href="#gallery">Galeria</a></li> 
           <li><a href="#chefs">Expertos</a></li>
           <li><a href="#contact">Contacto</a></li>
-          <li class="book-a-table text-center"><a href="#book-a-table">Registrate</a></li>
+		  <!--<li class="book-a-table text-center"><a href="#book-a-table">Registrate</a></li>-->
+		  	<li class="book-a-table text-center">
+				<a href="#login" data-toggle="modal" class="nav-link" > Iniciar Sesión</a>
+			</li>
         </ul>
       </nav><!-- .nav-menu -->
 
     </div>
   </header><!-- End Header -->
-
+  	<section>
+		<div id="app-login" style="color: black">
+			@include("auth.login")
+		</div>
+  	</section>
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
@@ -170,7 +196,7 @@
         <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
 
           <div class="col-lg-6 menu-item filter-starters">
-            <img src="{{url('assets/img/menu/Reto 1.jpg')}}" class="menu-img" alt="">
+            <img src="assets/img/menu/Reto 1.jpg" class="menu-img" alt="">
             <div class="menu-content">
               <a href="#">Reto 1 </a><span></span>
             </div>
@@ -721,8 +747,46 @@
         </div>
 
       </div>
-    </section><!-- End Chefs Section -->
+	</section><!-- End Chefs Section -->
+	<!----==============Aliados estrategicos base de datos===============-->
+	<br/>
+    
+    <h3 class="text-center">Aliados estratégicos</h2>
 
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="text-align:center;" >
+                <img src="images/sennova2020.png" style="width:80%;" height="200"  alt="...">
+            </div>  
+            @foreach ($lis_aliados as $values)
+            <div class="carousel-item" >
+                <div class="card mb-3" style="width: 80%; margin:auto;margin-top:10px;">
+                    <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <a target="_blank" href="{{ $values ['url'] }}"><img src="images/{{ $values['logo'] }}" class="card-img" height="200" ></a>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-decoration:none"><a href="{{route('aliados_estrategicos.show',$values)}}">{{ $values['nombre'] }}</a></h5>
+                            <p class="card-text">{{$values['descripcion']}}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>  
+            @endforeach 
+            <a class="carousel-control-prev" href="#carouselExampleControls"  role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon"  aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div> 
+    <br>
+ <!----==============End aliados estrategicos base de datos===============-->
 <!-- ======= Testimonials Section ======= -->
 <section id="testimonials" class="testimonials section-bg">
   <div class="container" data-aos="fade-up">
@@ -964,4 +1028,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-@endsection
+
+</body>
+
+</html>

@@ -220,12 +220,12 @@
     <div id="app">
 		<div class="wrapper">
 			<div class="container-fluid">
-				<!---<nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+				<nav class="navbar navbar-expand-lg navbar-light" id="navbar">
                 <div class="log">
                 <img src="{{url('img/innexsa.png')}}" class="img-fluid">
-                </div>-->	
+                </div>	
 					<!--<a class="navbar-brand" href="#">Navbar</a> -->
-					<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarNav">
@@ -234,30 +234,16 @@
 							<a class="nav-link" href="{{url('/')}}">Inicio <span class="sr-only">(current)</span></a>
                         </li>
                         @auth
-                        
                         <li class="nav-item">
 							<a class="nav-link" href="{{url('/home')}}">Dashboard</a>
 						</li> 
                         @endauth                        
 						<li class="nav-item">
 							<a class="nav-link" href="{{url('retos')}}">Retos</a>
-                        </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="{{url('blog')}}">Blog</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#contactenos">Contacto</a>
-                        </li>-->
-                        <!--<li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                              Dropdown link
-                            </a>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="#">Link 1</a>
-                              <a class="dropdown-item" href="#">Link 2</a>
-                              <a class="dropdown-item" href="#">Link 3</a>
-                            </div>
-                        </li>-->
+						</li>
 						<!-- <li class="nav-item">
 							<a class="nav-link disabled" href="#">Disabled</a>
                         </li> -->
@@ -265,7 +251,6 @@
                         {{-- <li>
                             <a href="{{ url('/register') }}" class="nav-link"> Registrarse</a>
                         </li> --}}
-                    <!--
                         <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
                         <li>
                         <a href="#login" data-toggle="modal" class="nav-link" > Iniciar Sesión</a>
@@ -295,7 +280,7 @@
 						</ul>
 					</div>
 					
-				</nav>-->
+				</nav>
                 <main class="py-4">
                  @yield('content')
                     <div id="app-login">
