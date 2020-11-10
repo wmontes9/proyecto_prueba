@@ -11,6 +11,7 @@
 |
 */
 
+//require('/routes/web/grupo_investigacion.php');
 Route::get('/',"Controller@index" );
 
 /* Route::get('/', function () {
@@ -63,7 +64,7 @@ Route::get('admin/getretos','RetoController@getretos');
 
 
 Route::get('getretos','RetoController@getRetosPublicados');
-Route::get('retos','RetoController@getinfo');
+
 Route::get('solucion','SolucionController@getinfo');
 Route::get("getSolucion/{id}","SolucionController@getgeneralusuario");
 Route::get("getSolucionReto","SolucionController@getgeneralreto");
@@ -144,8 +145,7 @@ Route::prefix('retos')->group(function(){
 // rutaa grupos de investigación
 
 
-Route::get('retos/getretos','RetoController@getretos')->name('getretos');
-Route::resource("retos","RetoController");
+
 
 Route::get('buscar_formulario','Aliados_estrategicosController@formulario')->name('buscar_formulario');
 Route::get('buscar','Aliados_estrategicosController@buscar')->name('buscar');
