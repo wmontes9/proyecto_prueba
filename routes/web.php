@@ -49,8 +49,7 @@ Route::group(["middleware"=>['auth']],function(){
         Route::get('/home', 'HomeController@admin')->name('admin');
     });*/
 });
-Route::resource("admin/retos","RetoController"); //administración de retos
-
+Route::resource("admin/retos","RetoController");//administración de retos
 Route::resource("admin/grupo","GrupoInvestController"); // administración grupo de investigacion
 Route::get('admin/listaGrupos','GrupoInvestController@getListaGrupos')->name('listaGrupos');
 Route::get('admin/retos/publicar/{id}','RetoController@publicarReto');

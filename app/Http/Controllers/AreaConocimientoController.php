@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Area_Conocimiento;
 use Illuminate\Http\Request;
-
+use App;
+use Session;
 class AreaConocimientoController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class AreaConocimientoController extends Controller
      */
     public function index()
     {
-        //
+        return view("grupoDeInvestigacion.crearVincularArea.ListArea");
     }
 
     /**
@@ -22,9 +23,14 @@ class AreaConocimientoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function getArea(){
+        //dd("getArea");
+        return area_conocimiento::all(); //nombre clase
+    }
     public function create()
     {
-        //
+        dd("formulariocreararea");
     }
 
     /**
@@ -35,7 +41,11 @@ class AreaConocimientoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $area = new Area_Conocimiento; //mirar si es el mpdelo o loa carpeta
+        $area->nombre = $request->nombre;
+        $area->save();
+        
+        return;
     }
 
     /**
@@ -69,7 +79,11 @@ class AreaConocimientoController extends Controller
      */
     public function update(Request $request, Area_Conocimiento $area_Conocimiento)
     {
-        //
+        $area = Area_Conocimiento::find($request->id);
+        $area->id_area_conocimiento = $request->id;
+        $area->nombre = $request->nombre;
+        $area->save();
+        return "correcto";
     }
 
     /**
@@ -78,8 +92,11 @@ class AreaConocimientoController extends Controller
      * @param  \App\Area_Conocimiento  $area_Conocimiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Area_Conocimiento $area_Conocimiento)
+    public function destroy( $area_Conocimiento)
     {
-        //
+        $area = Area_Conocimiento::findOrFail($area_Conocimiento);
+        $area->delete();
+        $cant = 0;
+        return $cant;
     }
 }

@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Linea_Invest extends Model
 {
-    protected $table = "linea_invest";
-
+    protected $table = "linea_invests";
+    protected $primaryKey = "id";
     protected $fillable = ["id_grupo_invest","nombre","descripcion"];
 
     public function grupo_investigacion(){
