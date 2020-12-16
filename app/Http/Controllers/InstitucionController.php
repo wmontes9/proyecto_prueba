@@ -40,7 +40,7 @@ class InstitucionController extends Controller
             
             $usuario_grupo = Auth::user()->grupos;
             foreach ($usuario_grupo as $grupo) {
-                if($grupo->pivot->id_grupo === $request->session()->get('rolActual')){
+                if($grupo->pivot->id_usuario === $request->session()->get('rolActual')){
                     $grupo->pivot->id_institucion = $institucion->id_institucion;
                     $grupo->pivot->rol = "lider";
                     $grupo->pivot->estado = 1;

@@ -18,6 +18,8 @@ mix.scripts([
     'resources/js/jquery.min.js',
     'resources/js/popper.min.js',
     'resources/js/vue.js',
+    'resources/js/vue_form_wizard.js',
  ],'public/js/app.js'). styles([
     'resources/css/bootstrap.min.css',
+    'resources/css/vue_form_wizard.css',
  ],'public/css/app.css');

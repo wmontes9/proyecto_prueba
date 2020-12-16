@@ -12,9 +12,9 @@
 */
 
 //require('/routes/web/grupo_investigacion.php');
-Route::get('/',"Controller@index" );
+Route::get('/',"InicioController@index" );
 
-/* Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome'); // pagina princial
 }); */
 Route::resource("admin/solucion","SolucionController");

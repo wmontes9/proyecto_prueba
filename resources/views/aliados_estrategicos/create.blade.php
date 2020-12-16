@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="background-color: rgba(40, 14, 4, 0.4); color: #fff;">
                {{--  @if($errors->any())
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -12,7 +12,7 @@
                         @endforeach
                     </ul>
                 @endif --}}
-                <div class="card-header">Registrar Aliado</div>
+                <div class="card-header">Registrar aliado estratégico</div>
                 <form action="{{ route('aliados_estrategicos.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -20,7 +20,7 @@
                         <input class="form-control" type="text" name="nombre" required>
                     </div>
                     <div class="form-group">
-                        <label>Descripcion</label>
+                        <label>Descripción</label>
                         <input class="form-control" type="text" name="descripcion" required>
                     </div>
                     <div class="form-group">

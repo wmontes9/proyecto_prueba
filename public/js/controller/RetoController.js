@@ -1,19 +1,20 @@
+Vue.use(VueFormWizard)
 new Vue({
 	el:"#appRetos",
 	created:function(){
 		this.getRetos();
 	},
 	data:{
-		fillReto:{"id_reto":"","titulo":"","pregunta":"","necesidad":"","causa":"","consecuencia":"",
-		"interesados":"","tiempo_ejecucion":"","lugar":"","condicion_e":"","p_solucion":"","alcance":"",
-		"condicion_p":"","accion":"","conocimiento":"","elementos":"","descripcion_s":"","evaluacion":"",
+		fillReto:{"id_reto":"","titulo":"","pregunta":"","necesidad":"","causas":"","consecuencias":"",
+		"interesados":"","region":"","ubicacion":"","condicion_e":"","tiempo_e":"","p_solucion":"","alcance":"",
+		"condicion_fp":"","acciones_c":"","recursos_p":"","elementos_ps":"","evaluacion":"",
 		"url_imagen":"","estado":""},
 		retos:[],
 		titulo:"",
 		pregunta:"",
 		necesidad:"",
-		causa:"",
-		consecuencia:"",
+		causas:"",
+		consecuencias:"",
 		interesados:"",
 		tiempo_ejecucion:"",
 		lugar:"",
@@ -21,10 +22,9 @@ new Vue({
 		p_solucion:"",
 		alcance:"",
 		condicion_p:"",
-		accion:"",
+		acciones_c:"",
 		conocimiento:"",
 		elementos:"",
-		descripcion_s:"",
 		evaluacion:"",
 		url_imagen:"",
 		estado:"",
@@ -32,6 +32,9 @@ new Vue({
 
 	},
 	methods:{
+		onCompletee: function(){
+			$("#formUpdateReto").submit();
+		 },
 		getRetos:function(){
 			var url = "/admin/getretos";
 			axios.get(url).then(response=>{
@@ -56,7 +59,6 @@ new Vue({
 					accion:this.accion,
 					conocimiento:this.conocimiento,
 					elementos:this.elementos,
-					descripcion_s:this.descripcion_s,
 					evaluacion:this.evaluacion,
 					url_imagen:this.url_imagen,
 					estado:this.estado,    
@@ -79,7 +81,6 @@ new Vue({
 					this.accion = "";
 					this.conocimiento = "";
 					this.elementos = "";
-					this.descripcion_s = "";
 					this.evaluacion = "";
 					this.url_imagen = "";
 					this.estado = "";
@@ -91,19 +92,19 @@ new Vue({
 				this.fillReto.titulo = reto.titulo;
 				this.fillReto.pregunta = reto.pregunta;
 				this.fillReto.necesidad = reto.necesidad;
-				this.fillReto.causa = reto.causa;
-				this.fillReto.consecuencia = reto.consecuencia;
+				this.fillReto.causas = reto.causas;
+				this.fillReto.consecuencias = reto.consecuencias;
 				this.fillReto.interesados = reto.interesados;
-				this.fillReto.tiempo_ejecucion = reto.tiempo_ejecucion;
-				this.fillReto.lugar = reto.lugar;
+				this.fillReto.region = reto.region;
+				this.fillReto.ubicacion = reto.ubicacion;
 				this.fillReto.condicion_e = reto.condicion_e;
+				this.fillReto.tiempo_e = reto.tiempo_e;
 				this.fillReto.p_solucion = reto.p_solucion;
 				this.fillReto.alcance = reto.alcance;
-				this.fillReto.condicion_p = reto.condicion_p;
-				this.fillReto.accion = reto.accion;
-				this.fillReto.conocimiento = reto.conocimiento;
-				this.fillReto.elementos = reto.elementos;
-				this.fillReto.descripcion_s = reto.descripcion_s;
+				this.fillReto.condicion_fp = reto.condicion_fp;
+				this.fillReto.acciones_c = reto.acciones_c;
+				this.fillReto.recursos_e = reto.recursos_e;
+				this.fillReto.elementos_ps = reto.elementos_ps;
 				this.fillReto.evaluacion = reto.evaluacion;
 				this.fillReto.url_imagen = reto.url_imagen;
 				this.fillReto.estado = reto.estado;

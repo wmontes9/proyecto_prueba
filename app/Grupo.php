@@ -15,7 +15,7 @@ class Grupo extends Model
     }
     public function usuarios()
     {
-        return $this->belongsToMany(User::class, 'usuario_grupo', 'id_grupo', 'id_usuario')->withPivot('id_institucion');
+        return $this->belongsToMany(User::class, 'usuario_grupo', 'id_grupo', 'id_usuario');
     }
     public function instituciones()
     {

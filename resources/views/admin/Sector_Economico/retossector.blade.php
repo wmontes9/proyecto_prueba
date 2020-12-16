@@ -1,6 +1,6 @@
 @extends("layouts.app")
 @section("content")
-    <div class="container">
+    <div class="container" style="background-color: rgba(40, 14, 4, 0.4); color: #fff;">
         <div class="row text-center">
             <h3>Retos sector {{$datosSector['nombre']}}</h3>
         </div>

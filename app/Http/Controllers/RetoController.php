@@ -67,8 +67,8 @@ class RetoController extends Controller
      */
     public function create()
     {
-        dd("store");
-        //
+        //dd("store");
+        return view('admin.Reto.createmult');
     }
 
     /**
@@ -78,32 +78,33 @@ class RetoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {       
+    {  //dd($request->hasFile('url_imagen'));
         $reto = new reto;        
-        $file = $request->url_imagen->store('public/imgReto');        
+        $file = $request->url_imagen->store('public/imgReto');     
         $nombre = explode('/',$file);
         $reto->titulo = $request->titulo;
         $reto->pregunta = $request->pregunta;
         $reto->necesidad = $request->necesidad;
-        $reto->causa = $request->causa;
-        $reto->consecuencia = $request->consecuencia;
+        $reto->causas = $request->causas;
+        $reto->consecuencias = $request->consecuencias;
         $reto->interesados = $request->interesados;
-        $reto->tiempo_ejecucion = $request->tiempo_ejecucion;
-        $reto->lugar = $request->lugar;
+        $reto->region = $request->region;
+        $reto->ubicacion = $request->ubicacion;
         $reto->condicion_e = $request->condicion_e;
+        $reto->tiempo_e = $request->tiempo_e;
         $reto->p_solucion = $request->p_solucion;
         $reto->alcance = $request->alcance;
-        $reto->condicion_p = $request->condicion_p;
-        $reto->accion = $request->accion;
-        $reto->conocimiento = $request->conocimiento;
-        $reto->elementos = $request->elementos;
-        $reto->descripcion_s = $request->descripcion_s;
+        $reto->condicion_fp = $request->condicion_fp;
+        $reto->acciones_c = $request->acciones_c;
+        $reto->recursos_e = $request->recursos_e;
+        $reto->elementos_ps = $request->elementos_ps;
         $reto->evaluacion = $request->evaluacion;
         $reto->url_imagen=$nombre[2];
         $reto->estado="inactivo";
         $reto->save();
 
         $reto->usuarios()->sync(Auth::user()->id_usuario);
+        $reto->sector_economico()->sync($request->id_sector);
         
         return redirect()->back();
     }
@@ -155,19 +156,19 @@ class RetoController extends Controller
         $reto->titulo = $request->titulo;
         $reto->pregunta = $request->pregunta;
         $reto->necesidad = $request->necesidad;
-        $reto->causa = $request->causa;
-        $reto->consecuencia = $request->consecuencia;
+        $reto->causas = $request->causas;
+        $reto->consecuencias = $request->consecuencias;
         $reto->interesados = $request->interesados;
-        $reto->tiempo_ejecucion = $request->tiempo_ejecucion;
-        $reto->lugar = $request->lugar;
+        $reto->region = $request->region;
+        $reto->ubicacion = $request->ubicacion;
         $reto->condicion_e = $request->condicion_e;
+        $reto->tiempo_e = $request->tiempo_e;
         $reto->p_solucion = $request->p_solucion;
         $reto->alcance = $request->alcance;
-        $reto->condicion_p = $request->condicion_p;
-        $reto->accion = $request->accion;
-        $reto->conocimiento = $request->conocimiento;
-        $reto->elementos = $request->elementos;
-        $reto->descripcion_s = $request->descripcion_s;
+        $reto->condicion_fp = $request->condicion_fp;
+        $reto->acciones_c = $request->acciones_c;
+        $reto->recursos_e = $request->recursos_e;
+        $reto->elementos_ps = $request->elementos_ps;
         $reto->evaluacion = $request->evaluacion;
         $reto->save();
         return redirect('admin/retos');

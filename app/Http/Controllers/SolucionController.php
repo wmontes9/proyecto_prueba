@@ -89,7 +89,7 @@ class SolucionController extends Controller
         $solucion->image_solucion=$nombre[2];
         $solucion->estado="inactivo";
         $solucion->save();
-        
+        $solucion->usuarios()->sync(Auth::user()->id_usuario);
         return redirect('admin/solucion');
     }
 

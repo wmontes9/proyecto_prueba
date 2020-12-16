@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->string('tipo_documento');            
-            $table->string("num_identificacion");
+            $table->string("num_identificacion")->unique();
             $table->text('direccion');
             $table->string('telefono'); 
             $table->string('email')->unique();
@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->boolean('administrador');
             $table->boolean('staf');
             $table->boolean('activo');
+            $table->text('url_imagen')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->foreign('id_municipio')->references('id_municipio')->on('municipios');

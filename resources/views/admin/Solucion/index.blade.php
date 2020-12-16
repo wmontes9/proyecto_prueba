@@ -1,6 +1,6 @@
-@extends("layouts.app_inicio")
+@extends("layouts.app")
 @section("content")
-<div class="container">
+<div class="container" style="background-color: rgba(40, 14, 4, 0.6); color: #fff;">
 <div class="row text-center">
     <h3>Soluciones</h3>
 </div>

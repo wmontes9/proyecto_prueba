@@ -5,8 +5,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Aliados</div>
+            <div class="card" style="background-color: rgba(40, 14, 4, 0.4); color: #fff;">
+                <div class="card-header">Aliados estratégicos</div>
                 <div class="row">
                     <div class="col-md-7"></div>
                     <div class="col-md-5" style="padding: 7px;">
@@ -59,7 +59,7 @@
                             <th>Nombre</th>
                             <th>Descripcion</th>
                             <th>Logo</th>
-                            </tr>
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach($lis_aliados as $values)

@@ -26,7 +26,7 @@ class AddUrlLogoToAliadosEstrategicosTable extends Migration
     public function down()
     {
         Schema::table('aliados_estrategicos', function (Blueprint $table) {
-            //
+            $table->dropColumn('url');
         });
     }
 }

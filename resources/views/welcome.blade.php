@@ -42,15 +42,15 @@
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex">
       <div class="contact-info mr-auto">
-        <i class="icofont-phone"></i>(+57) 098 7446038)
-        <span class="d-none d-lg-inline-block"><i class="icofont-clock-time icofont-rotate-180"></i></span>
+        <i class="icofont-phone"></i>7422220
+        <span class="d-none d-lg-inline-block"></span>
       </div>
-      <div class="languages">
+      <!--<div class="languages">
         <ul>
           <li>En</li>
           <li><a href="#">Es</a></li>
         </ul>
-      </div>
+      </div>-->
     </div>
   </div>
 
@@ -64,13 +64,13 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Inicio</a></li>
+          <li class="active"><a href="/">Inicio</a></li>
           <li><a href="#about">Que hacemos</a></li>
-          <li><a href="#Blog">Blog</a></li>
+          <!--<li><a href="#Blog">Blog</a></li>-->
           <li><a href="#menu">Retos</a></li>
           <li><a href="#specials">Ambientes</a></li>
           <li><a href="#events">Eventos</a></li>
-          <li><a href="#gallery">Galeria</a></li> 
+          <li><a href="#gallery">Galería</a></li> 
           <li><a href="#chefs">Expertos</a></li>
           <li><a href="#contact">Contacto</a></li>
 		  <!--<li class="book-a-table text-center"><a href="#book-a-table">Registrate</a></li>-->
@@ -121,9 +121,14 @@
             </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            <h3>Retos de Innovacion, Experiencias y Saberes por Boyaca.</h3>
+            <h3>Retos de Innovación, Experiencias y Saberes por Boyacá.</h3>
             <p class="font-italic">
-              Esta plataforma se enfrenta a diferentes retos que actualmente se presentan en el sector productivo del departamento de Boyacá, como el desarrollo de capacidades en investigación, desarrollo experimental e innovación y la formulación de mecanismos para la transferencia y circulación de conocimiento, lo cual permita conocer, identificar, mejorar las capacidades productivas y afianzar la vocación regional en busca de la productividad y competitividad, así como la contribución al avance en la innovación y el desarrollo tecnológico empresarial.
+              Esta plataforma se enfrenta a diferentes retos que actualmente se presentan en el sector productivo
+               del departamento de Boyacá, como el desarrollo de capacidades en investigación, 
+               desarrollo experimental e innovación y la formulación de mecanismos para la transferencia
+                y circulación de conocimiento, lo cual permita conocer, identificar, mejorar las capacidades
+                 productivas y afianzar la vocación regional en busca de la productividad y competitividad,
+                  así como la contribución al avance en la innovación y el desarrollo tecnológico empresarial.
             </p>
           
             </p>
@@ -138,8 +143,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Por que nosotros</h2>
-          <p>Por que elegir nuestra plataforma</p>
+          <h2>Porque nosotros</h2>
+          <p>Porque elegir nuestra plataforma</p>
         </div>
 
         <div class="row">
@@ -148,7 +153,8 @@
             <div class="box" data-aos="zoom-in" data-aos-delay="100">
               <span>01</span>
               <h4>Los mejores expertos</h4>
-              <p>Innexsa cuenta con los mejores expertos en cada área de conocimiento los cuales estan dispuestos a prestar nuestros servicios.</p>
+              <p>Innexsa cuenta con los mejores expertos en cada área de conocimiento los cuales
+                 están dispuestos a prestar nuestros servicios.</p>
             </div>
           </div>
 
@@ -156,15 +162,16 @@
             <div class="box" data-aos="zoom-in" data-aos-delay="200">
               <span>02</span>
               <h4>Calidad en el servicio</h4>
-              <p>Queremos que cada participante se sienta respaldado la mejor tecnologia e infraestructura del departamento.</p>
+              <p>Queremos que cada participante se sienta respaldado por la mejor tecnología e infraestructura 
+                del departamento.</p>
             </div>
           </div>
 
           <div class="col-lg-4 mt-4 mt-lg-0">
             <div class="box" data-aos="zoom-in" data-aos-delay="300">
               <span>03</span>
-              <h4> Mejor conceccion entre empresarios y expertos</h4>
-              <p>Encontras una gran oportunidad de conectividad con todo pais y el mundo.</p>
+              <h4> Mejor conexión entre empresarios y expertos</h4>
+              <p>Encontrará una gran oportunidad de conectividad con todo país y el mundo.</p>
             </div>
           </div>
 
@@ -201,7 +208,9 @@
               <a href="#">Reto 1 </a><span></span>
             </div>
             <div class="menu-ingredients">
-              Estrategias para la incorporación y apropiación de las nuevas tecnologías en los sectores priorizados del departamento de Boyacá - Turismo, Servicios, Metalmecánico, Agroindustria y Minero.
+              Estrategias para la incorporación y apropiación de las nuevas tecnologías en los sectores
+               priorizados del departamento de Boyacá - Turismo, Servicios, Metalmecánico,
+                Agroindustria y Minero.
             </div>
           </div>
 
@@ -211,7 +220,7 @@
               <a href="#">Reto 9</a><span></span>
             </div>
             <div class="menu-ingredients">
-              LDiseñar una estrategia de relacionamiento entre los actores del ecosistema de base tecnológica e
+              Diseñar una estrategia de relacionamiento entre los actores del ecosistema de base tecnológica e
               innovación.
             </div>
           </div>
@@ -222,7 +231,8 @@
               <a href="#">Reto 2 </a><span></span>
             </div>
             <div class="menu-ingredients">
-              Formulación de estrategias de mercadeo, desde las industrias 4.0 en los sectores priorizados del departamento de Boyacá - Turismo, Servicios, Metalmecánico, Agroindustria y Minero
+              Formulación de estrategias de mercadeo, desde las industrias 4.0 en los sectores
+               priorizados del departamento de Boyacá - Turismo, Servicios, Metalmecánico, Agroindustria y Minero
             </div>
           </div>
 
@@ -252,7 +262,9 @@
               <a href="#">Reto 3</a><span></span>
             </div>
             <div class="menu-ingredients">
-              Diseño de estrategias para la incorporación y apropiación de las metodologías agiles en los procesos de innovación en los sectores priorizados del departamento de Boyacá - Turismo, Servicios, Metalmecánico, Agroindustria y Minero.
+              Diseño de estrategias para la incorporación y apropiación de las metodologías 
+              agiles en los procesos de innovación en los sectores priorizados del departamento 
+              de Boyacá - Turismo, Servicios, Metalmecánico, Agroindustria y Minero.
             </div>
           </div>
 
@@ -289,8 +301,27 @@
         </div>
 
       </div>
+    
     </section><!-- End Menu Section -->
-
+    <section id="menu" class="menu section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
+          @foreach ($retos as $reto)
+          <div class="col-lg-6 menu-item" >
+            <img src='{{ asset("storage/imgReto")}}/{{ $reto['url_imagen'] }}' class="img-thumbnail menu-img" alt="">
+            <div class="menu-content">
+              <h5><a href="#">{{ $reto['titulo'] }}</a><span></span></h5>
+            </div>
+            
+            
+            <div class="menu-ingredients">
+              <p class="card-text">{{$reto['pregunta']}}</p>
+            </div>
+          </div>  
+          @endforeach 
+        </div>
+      </div>
+    </section>
     <!-- ======= Specials Section ======= -->
     <section id="specials" class="specials">
       <div class="container" data-aos="fade-up">
@@ -326,7 +357,8 @@
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3></h3>
-                      Este cuenta con equipos de grabación para la realizacion de videos publicitarios, comercailes y documentales que sera base para la realización de emisora de la entidad.</p>
+                      Este cuenta con equipos de grabación para la realizacion de videos publicitarios, 
+                      comerciales y documentales que sera base para la realización de la emisora de la entidad.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="assets/img/audio.jpg" alt="" class="img-fluid">
@@ -338,7 +370,8 @@
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3></h3>
                     <p class="font-italic"></p>
-                    <p>Encontramos un estudio de grabación de video para el uso de cromac, mocap y fotogametria para el modelamiento de personajes y esenarios en 3D con tecnologia de punta.</p>
+                    <p>Encontramos un estudio de grabación de video para el uso de cromac, mocap y 
+                      fotogrametría para el modelamiento de personajes y esenarios en 3D con tecnología de punta.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="assets/img/mocap.jpg" alt="" class="img-fluid">
@@ -350,7 +383,9 @@
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3></h3>
                     <p class="font-italic"></p>
-                    <p>En este podemos encontrar tecnologias de alta calidad como una impresora 3D, un plotter y equipos robustos para la impresion y diseño de material publicitario e informativo.</p>
+                    <p>En este podemos encontrar tecnologías de alta calidad como una impresora 3D,
+                       un plotter y equipos robustos para la impresión y diseño de material publicitario
+                        e informativo.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="assets/img/render.jpg" alt="" class="img-fluid">
@@ -362,7 +397,8 @@
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3></h3>
                     <p class="font-italic"></p>
-                    <p>Cuenta con un esenario que permite la interación de la triple elice para aplicar tecnologias y metodologias e identifiar, prototipar y validad productos innovadores.</p>
+                    <p>Cuenta con un escenario que permite la interación de la triple elice para aplicar 
+                      tecnologías y metodologías e identificar, prototipar y validad productos innovadores.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="assets/img/ideacion.jpg" alt="" class="img-fluid">
@@ -374,7 +410,9 @@
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3></h3>
                     <p class="font-italic"></p>
-                    <p>Se busca la realización de mapeo en 3D para diferentes usos: recrear escenas, esenarios, etc, hacer levantamientos en 3D para la parte turistica, arquitectonica y de cableado.</p>
+                    <p>Se busca la realización de mapeo en 3D para diferentes usos: recrear escenas,
+                       esenarios, etc, hacer levantamientos en 3D para la parte turistica, arquitectonica
+                        y de cableado.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="assets/img/drone.jpg" alt="" class="img-fluid">
@@ -399,76 +437,30 @@
 
         <div class="owl-carousel events-carousel" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="row event-item">
-            <div class="col-lg-6">
-              <img src="assets/img/robotica.jpg" class="img-fluid" alt="">
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 content">
-              <h3>DIGITAL WORKFORCE
-                SUMMIT 2020</h3>
-              <div class="price">
-                <p><span>Entrada libre</span></p>
-                </div>
-                <p class="font-italic">
-                Es el evento más importante de Automatizacion Robótica de Procesos, Fuerza de trabajo digital inteligente y AI en Latinoamérica, con presencia en México, Brasil, Argentina, Chile y Colombia.
-              </p>
-              <ul>
-                <li><i class="icofont-check-circled"></i> Ponente: Jaime Yory</li>
-                <li><i class="icofont-check-circled"></i> Lugar: Plataforma zoom </li>
-                <li><i class="icofont-check-circled"></i> Fecha: 30 de Octubre 2020</li>
-              </ul>
-              <p>
-                En su segunda versión en Colombia, se realizará el lanzamiento oficial de la plataforma de Digital Workforce basada en la web y nativa en la nube Automation Anywhere Enterprise A2019
-              </p>
-            </div>
-          </div>
-
-          <div class="row event-item">
-            <div class="col-lg-6">
-              <img src="assets/img/ciberseguridad.jpg" class="img-fluid" alt="width="100" height="500" ">
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 content">
-              <h3>Congreso Innovación Digital, Entretenimiento y Tecnología </h3>
-              <div class="price">
-                <p><span>Entrada Libre</span></p>
+          @foreach ($eventos as $evento)
+            <div class="row event-item">
+              <div class="col-lg-6">
+                <img src="storage/imgEvento/{{ $evento['url_imagen'] }}" class="img-fluid" alt="">
               </div>
-              <p class="font-italic">
-                En 2020, el Congreso Innovación Digital, Entretenimiento y Tecnología abordará la protección de los datos personales en el mundo digital, desde la teoría hasta la práctica.
-              </p>
-              <ul>
-                <li><i class="icofont-check-circled"></i>Ponente: MIGUEL RECIO y PABLO MÁRQUEZ </li>
-                <li><i class="icofont-check-circled"></i>Lugar: Pontificia Universidad Javeriana.</li>
-                <li><i class="icofont-check-circled"></i>Fecha: 10 de Noviembre 2020.</li>
-              </ul>
-              <p>
-                El objetivo es generar canales de comunicación entre gobierno y sociedad para conversar sobre los principales retos que enfrentan usuarios, expertos en privacidad, empresas, emprendedores y organizaciones de la sociedad civil.
-              </p>
-            </div>
-          </div>
-
-          <div class="row event-item">
-            <div class="col-lg-6">
-              <img src="assets/img/enicie.png" class="img-fluid" alt="">
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 content">
-              <h3>Enicie Encuentro Nacional e Internacional de Competitividad e Innovación Empresarial</h3>
-              <div class="price">
-                <p><span>Entrada Libre</span></p>
+              <div class="col-lg-6 pt-4 pt-lg-0 content">
+              <h3>{{$evento['titulo']}}</h3>
+                <div class="price">
+                  <p><span>{{$evento['subtitulo']}}</span></p>
+                  </div>
+                  <p class="font-italic">
+                    {{$evento['descripcion']}}
+                </p>
+                <ul>
+                  <li><i class="icofont-check-circled"></i>Ponentes: {{$evento['ponentes']}}</li>
+                  <li><i class="icofont-check-circled"></i> Lugar: {{$evento['lugar']}} </li>
+                  <li><i class="icofont-check-circled"></i> Fecha: {{$evento['fecha']}}</li>
+                </ul>
+                <p>
+                  {{$evento['objetivo']}}
+                </p>
               </div>
-              <p class="font-italic">
-                Contribuir a la competitividad de las regiones mediante la investigación, desarrollo tecnológico e innovación.
-              </p>
-              <ul>
-                <li><i class="icofont-check-circled"></i> Participa como Ponente, Expositor o Asistente.</li>
-                <li><i class="icofont-check-circled"></i> Evento Virtual.</li>
-                <li><i class="icofont-check-circled"></i> Fecha: 27 a 29 de Octubre 2020.</li>
-              </ul>
-              <p>
-                Los ponentes que deseen presentar su trabajo deberán contar con un resultado parcial o total de la investigación realizada
-              </p>
             </div>
-          </div>
-
+          @endforeach
         </div>
 
       </div>
@@ -539,7 +531,8 @@
           <div class="testimonial-item">
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Estoy encantada con la plataforma, la temática y la ayuda recibida y personalizada. La plataformas en la nube, me he atrevido a crear un historia aplicando los conocimientos.
+              Estoy encantada con la plataforma, la temática y la ayuda recibida y personalizada.
+               La plataformas en la nube, me he atrevido a crear un historia aplicando los conocimientos.
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
             <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
@@ -550,7 +543,9 @@
           <div class="testimonial-item">
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              La atención ha sido de sobresaliente. Muchas gracias. Ha sido difícil en algunas situaciones pero debido a a la complejidad de la empresa y de los retos que enfrentamos.
+              La atención ha sido de sobresaliente. Muchas gracias. 
+              Ha sido difícil en algunas situaciones pero debido a a la complejidad de la empresa
+               y de los retos que enfrentamos.
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
             <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
@@ -561,7 +556,7 @@
           <div class="testimonial-item">
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              La experiencia es fantastica logre junto con el experto innovar en la idea de negocio que tengo. 
+              La experiencia es fantástica logre junto con el experto innovar en la idea de negocio que tengo. 
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
             <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
@@ -572,7 +567,8 @@
           <div class="testimonial-item">
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Excelente curso, tanto la estructura como la calidad de los contenidos, así como la experiencia y comunicación con el experto.
+              Excelente curso, tanto la estructura como la calidad de los contenidos,
+               así como la experiencia y comunicación con el experto.
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
             <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
@@ -583,7 +579,7 @@
           <div class="testimonial-item">
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Lo aprendido con la plataforma ha sido de gran ayuda y la atención del tutor es inmejorable.
+              Lo aprendido con la plataforma ha sido de gran ayuda y la atención del tutor es inmemorable.
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
             <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
@@ -680,12 +676,12 @@
     </section><!-- End Gallery Section -->
 
     <!-- ======= Mentores Section ======= -->
-    <section id="mentores" class="chefs">
+    <section id="chefs" class="chefs">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
           <h2>Nuestros Mentores</h2>
-          <p>Conocelos e interactua con ellos</p>
+          <p>Conócelos e interactúa con ellos</p>
         </div>
 
         <div class="row">
@@ -696,7 +692,7 @@
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>Carmen Cecilia Zuluaga</h4>
-                  <span>ADMINISTRACION DE EMPRESAS</span>
+                  <span>Administradora de empresas</span>
                 </div>
                 <div class="social">
                   <a href=""><i class="icofont-twitter"></i></a>
@@ -732,7 +728,7 @@
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>Wilson Montes</h4>
-                  <span>Ingeniero Electronico</span>
+                  <span>Ingeniero Electrónico</span>
                 </div>
                 <div class="social">
                   <a href=""><i class="icofont-twitter"></i></a>
@@ -748,102 +744,25 @@
 
       </div>
 	</section><!-- End Chefs Section -->
-	<!----==============Aliados estrategicos base de datos===============-->
-	<br/>
-    
-    <h3 class="text-center">Aliados estratégicos</h2>
-
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" style="text-align:center;" >
-                <img src="images/sennova2020.png" style="width:80%;" height="200"  alt="...">
-            </div>  
-            @foreach ($lis_aliados as $values)
-            <div class="carousel-item" >
-                <div class="card mb-3" style="width: 80%; margin:auto;margin-top:10px;">
-                    <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <a target="_blank" href="{{ $values ['url'] }}"><img src="images/{{ $values['logo'] }}" class="card-img" height="200" ></a>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title" style="text-decoration:none"><a href="{{route('aliados_estrategicos.show',$values)}}">{{ $values['nombre'] }}</a></h5>
-                            <p class="card-text">{{$values['descripcion']}}</p>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>  
-            @endforeach 
-            <a class="carousel-control-prev" href="#carouselExampleControls"  role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon"  aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div> 
-    <br>
- <!----==============End aliados estrategicos base de datos===============-->
 <!-- ======= Testimonials Section ======= -->
 <section id="testimonials" class="testimonials section-bg">
   <div class="container" data-aos="fade-up">
 
     <div class="section-title">
-      <h2>Compartimos la misma filosofia de negocio.</h2>
-      <p>Aliados Estrategicos.</p>
+      <h2>Compartimos la misma filosofía de negocio.</h2>
+      <p>Aliados Estratégicos.</p>
     </div>
 
     <div class="owl-carousel testimonials-carousel" data-aos="zoom-in" data-aos-delay="100">
-
-      <div class="testimonial-item">
-        <p>
-          Entidad líder a nivel nacional en formalización, desarrollo y crecimiento del sector empresarial en la región, comprometida con la prestación de servicios enfocados a las necesidades de los empresarios y la mejora continua.
-        </p>
-        <img src="assets/img/aliados/camara de comercio.png" class="testimonial-img" alt="width="100 height="90">
-        <h3>Camara de Comercio de Tunja</h3>
-        <h4>Dirección: &amp;Cl. 21 #10-52 PBX (8)7474660.</h4>
-      </div>  
-
-      <div class="testimonial-item">
-        <p>
-
-          Somos una entidad pública Departamental. Nuestro compromiso, es brindar servicios públicos de calidad con la apropiación de valores y principios
-        </p>
-        <img src="assets/img/aliados/gobernacion de boyaca.png" class="testimonial-img" alt="width="100 height="80">
-        <h3>Gobernación de Boyacá</h3>
-        <h4>Palacio de la Torre Calle 20 No. 9 - 90 &amp; PBX+(57)8742 0150</h4>
-      </div>
-
-      <div class="testimonial-item">
-        <p>
-          Contribuir a la educación para todos a través de la modalidad abierta, a distancia y en ambientes virtuales de aprendizaje, mediante la acción pedagógica, la proyección social, el desarrollo región Tunja. 
-        </p>
-        <img src="assets/img/aliados/unad.png" class="testimonial-img" alt="width="100 height="90">
-        <h3>Universidad Nacional Abierta y a distancia</h3>
-        <h4>Dirección: Calle 18 con Carrera 1 Barrio Manzanares &amp;PBX (8)7443587</h4>
-      </div>
-
-      <div class="testimonial-item">
-        <p>
-          Somos una institución de carácter universitario, de calidad académica acreditada, líder en la transformación de la sociedad, las entidades públicas y las organizaciones sociales.
-        </p>
-        <img src="assets/img/aliados/esap.jpeg" class="testimonial-img" alt="">
-        <h3>ESAP</h3>
-        <h4>Dirección: Calle 44 # 53 &amp; PBX (1) 4434920,</h4>
-      </div>
-
-      <div class="testimonial-item">
-        <p>
-          Somos una universidad pública, estatal de carácter nacional, Somos Universidad más importante del departamento de Boyacá y una de las más prestigiosas en el Estado Colombiano por su nivel académico.
-        </p>
-        <img src="assets/img/aliados/uptc.jpeg" class="testimonial-img" alt="">
-        <h3>UPTC</h3>
-        <h4>Avenida Central del Norte 39-115&amp; PBX (8)7405626</h4>
-      </div>
-
+      @foreach ($lis_aliados as $values)
+        <div class="testimonial-item">
+          <p>
+            {{$values['descripcion']}}
+          <a target="_blank" href="{{ $values ['url'] }}"><img src="images/{{ $values['logo'] }}" class="card-img" height="200" ></a>
+          <h3 class="card-title" style="text-decoration:none"><a href="{{route('aliados_estrategicos.show',$values)}}">{{ $values['nombre'] }}</a></h3>
+          <h4>Dirección: &amp;Cl. 21 #10-52 PBX (8)7474660.</h4>
+        </div>
+        @endforeach   
     </div>
 
   </div>
@@ -855,12 +774,12 @@
 
         <div class="section-title">
           <h2>Contacto</h2>
-          <p>Contactenos</p>
+          <p>Contáctenos</p>
         </div>
       </div>
 
       <div data-aos="fade-up">
-          <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6678.703606636282!2d-73.36128816282043!3d5.540167475861752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a7c30218d925f%3A0xb18e745be5b600aa!2sServicio%20de%20Empleo!5e0!3m2!1ses!2sco!4v1607124340193!5m2!1ses!2sco" frameborder="0" allowfullscreen>></iframe>
       </div>
 
       <div class="container" data-aos="fade-up">
@@ -871,7 +790,7 @@
             <div class="info">
               <div class="address">
                 <i class="icofont-google-map"></i>
-                <h4>Direccion:</h4>
+                <h4>Dirección:</h4>
                 <p>Calle 19 No 12-29, Tunja, Boyacá</p>
               </div>
 
@@ -892,7 +811,7 @@
 
               <div class="phone">
                 <i class="icofont-phone"></i>
-                <h4>Telefono:</h4>
+                <h4>Teléfono:</h4>
                 <p>+57 0987 446038</p>
               </div>
 
@@ -926,7 +845,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">Enviar mensaje</button></div>
             </form>
 
           </div>
@@ -969,9 +888,9 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Acerca de Nosotros</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Servicios</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Condicion de Servicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Condiciones de Servicio</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Autorización de Tratamiento de datos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Politica de Privacidad</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Política de Privacidad</a></li>
             </ul>
           </div>
 
@@ -981,14 +900,14 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Diseño Web</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Desarrollo Web</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Gestión de productos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Consultorias</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Consultorías</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Noticias</h4>
-            <p>Ultimas noticias sobre nuestra plataforma y nuevos retos.</p>
+            <p>Últimas noticias sobre nuestra plataforma y nuevos retos.</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
@@ -1001,14 +920,14 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; INNEXSA <strong><span>Derechos</span></strong>. recervados
+        &copy; INNEXSA <strong><span>Derechos</span></strong>. reservados
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/restaurantly-restaurant-template/ -->
-        Diseñado por <a href="https://bootstrapmade.com/">xxxxxxxxxxx</a>
+        Diseñado por <a href="https://bootstrapmade.com/">Liliana y Andres</a>
       </div>
     </div>
   </footer><!-- End Footer -->

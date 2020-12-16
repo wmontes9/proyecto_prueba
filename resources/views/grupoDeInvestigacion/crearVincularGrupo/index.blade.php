@@ -1,12 +1,12 @@
-<div class="container-fluid" id="grupoInvestigacion">
-    <h1>Grupos de Investigacion</h1>
+<div class="container-fluid" id="grupoInvestigacion" style="background-color: rgba(40, 14, 4, 0.6); color: #fff;">
+    <h1>Grupos de investigacion</h1>
     <hr/>
     <div class="row">
         <div class="col-md-8">
             <div class="input-group mb-2">
                 <input type="text" name="consulta_sigla" id="consulta_sigla" class="form-control">
                 <div class="input-group-append">
-                    <button type="button" id="buscar_grupo" class="btn btn-warning" v-on:click="consultarGrupo">
+                    <button type="button" id="buscar_grupo" class="btn btn-warning" v-on:click="consultarGrupo" style="background-color: #E06F12">
                         <i class="fas fa-search"></i> Consultar Grupo
                     </button>
                 </div>
@@ -16,7 +16,7 @@
                     <tr class="thead-dark">
                         <th>Sigla</th>
                         <th>Nombre</th>
-                        <th>Logo</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +33,7 @@
             </table>
             <div class="modal fade" role="dialog" id="verGrupo">
                 <div class="modal-dialog">
-                    <div class="modal-content">
+                    <div class="modal-content" style="background-color: rgba(40, 14, 4, 0.95); color: #fff;">
                         <div class="modal-header d-flex justify-content-between">
                             <h3 class="modal-title text-center w-50" v-text="verGrupo.sigla"></h3>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -48,7 +48,7 @@
         </div>
         <div class="col-md-4">
             <h4 class="h4 text-center">
-                Crear Grupo de Investigacion
+                Crear grupo de investigación
             </h4>
             <form action="{{route('crearGrupo')}}" method="post" enctype="multipart/form-data">
                 @csrf    
@@ -57,14 +57,14 @@
                     <input type="text" name="sigla" id="sigla" class="form-control">
                 </div>
                 <div class="input_group">
-                    <label for="nombre">Nombre del Grupo</label>
+                    <label for="nombre">Nombre del grupo</label>
                     <input type="text" name="nombre" class="form-control">
                 </div>
                 <div class="input_group">
                     <label for="logo">Logo</label>
                     <input type="file" name="logo" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-dark mt-1">Enviar Datos</button>    
+                <button type="submit" class="btn btn-dark mt-1">Enviar datos</button>    
             </form>            
         </div>
     </div>

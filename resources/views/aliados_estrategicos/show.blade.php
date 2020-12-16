@@ -2,12 +2,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="background-color: rgba(40, 14, 4, 0.4); color: #fff;">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="background-color: rgba(40, 14, 4, 0.4); color: #fff;">
                 {{--  @foreach($reto as $values) --}}
-                <div class="card-header">Aliados</div>
+                <div class="card-header">Aliados estratégicos</div>
                 <div class="row">
                     <div class="col-md-7"></div>
                     <div class="col-md-2" style="padding: 5px;">
@@ -28,7 +28,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Nombre</th>
-                            <th>Descripcion</th>
+                            <th>Descripción</th>
                             <th>Logo</th>
                             <th>Url</th>
                         </tr>

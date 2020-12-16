@@ -107,6 +107,7 @@ class DatabaseSeeder extends Seeder
             }
         }
         $this->call([
+            departamentos_municipios::class,
             AdministradorSeeder::class
         ]);
     }    

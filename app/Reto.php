@@ -10,7 +10,7 @@ class Reto extends Model
 
     protected $primaryKey = 'id_reto';
 
-    protected $fillable = ["titulo","pregunta","causa","necesidad","consecuencia","interesados","tiempo_ejecucion","lugar","condicion_e","p_solucion","alcance","condicion_p","accion","conocimiento","elementos","descripcion_s","evaluacion","url_imagen","estado"];
+    protected $fillable = ["titulo","pregunta","necesidad","causas","consecuencias","interesados","region","ubicacion","condicion_e","tiempo_e","p_solucion","alcance","condicion_fp","acciones_c","recursos_e","elementos_ps","evaluacion","url_imagen","estado"];
    
     public function soluciones()
     {

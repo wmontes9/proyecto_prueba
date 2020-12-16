@@ -17,6 +17,8 @@ class CreateUsuarioInstitucionTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_usuario')->index();
             $table->unsignedBigInteger('id_institucion')->index();  
+            $table->string('rol')->default('asociado');
+            $table->integer('estado')->default(0);
             $table->timestamps();
 
             $table->foreign('id_usuario')->references('id_usuario')->on('usuarios');

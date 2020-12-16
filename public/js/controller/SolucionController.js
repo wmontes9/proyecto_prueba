@@ -1,3 +1,4 @@
+Vue.use(VueFormWizard)
 new Vue({
 	el:"#appSoluciones",
 	created:function(){
@@ -66,12 +67,12 @@ new Vue({
                     //$("#detailcompetencia").modal("hide");
                     if(response.data != 0){
 						$.sweetModal({
-							content: 'No se ha podido eliminar ya que tiene soluciones  asociadas ',
+							content: 'No se ha podido eliminar ya que tiene usuarios asociadas ',
 							icon: $.sweetModal.ICON_WARNING
 						});
                    }else{
                       	 $.sweetModal({
-                             content: 'Reto eliminado correctamente',
+                             content: 'Solución eliminada correctamente',
                              icon: $.sweetModal.ICON_SUCCESS
                      	});
                      	this.getSoluciones();

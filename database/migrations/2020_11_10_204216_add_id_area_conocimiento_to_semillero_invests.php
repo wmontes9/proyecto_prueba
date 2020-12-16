@@ -27,7 +27,7 @@ class AddIdAreaConocimientoToSemilleroInvests extends Migration
     public function down()
     {
         Schema::table('semillero_invests', function (Blueprint $table) {
-            //
+            $table->dropColumn('id_area_conocimiento');
         });
     }
 }

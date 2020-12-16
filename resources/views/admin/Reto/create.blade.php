@@ -8,6 +8,17 @@
                     <button class="close" data-dismiss="modal">&times;</button>					
 				</div>
 				<div class="modal-body">
+					<form-wizard>
+						<tab-content title="Detalles personales">
+							Primer paso
+						</tab-content>
+						<tab-content title="Información adicional">
+							Segundo paso
+						</tab-content>
+						<tab-content title="Verificación">
+							Tercer paso
+						</tab-content>
+					</form-wizard>
 					<p class="text-justify">Bienvenido al sistema de gestión de retos de INNEXSA.<br>
 						El banco de retos de INNEXSA contempla el registro de retos empresariales de: Innovación, Investigación y Emprendimiento<br>
 						Antes de diligenciar el formulario de registro de retos se recomienda leer detenidamente el documento de lineamientos de la construcción de retos, para evitar errores que pueden afectar la evaluación del reto y cargar los archivos adjuntos en el formato establecido.<br>

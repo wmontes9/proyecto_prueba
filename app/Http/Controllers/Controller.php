@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AliadosEstrategicos;
+use App\Reto;
 use DB;
 use Illuminate\Http\Request;
 
@@ -15,11 +16,6 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function index(){
-
-    $lis_aliados = AliadosEstrategicos::all()->toArray();
-        return view('welcome',compact('lis_aliados'));
-    }
-
 }
+
 

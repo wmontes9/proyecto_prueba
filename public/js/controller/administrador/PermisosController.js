@@ -1,11 +1,11 @@
 new Vue({
+    el:"#permisos",
     created:function(){  
         this.controlBotones("div#editar_permisos",true);                
     }, 
     mounted:function() {
         app.estado($("div#estado"),this.estados.off);        
     },   
-    el:"#permisos",
     data:{
         permisosParaAsignar:null,
         permisosParaRemover:null,
@@ -74,7 +74,7 @@ new Vue({
                 }
             });
         },
-        consultar:function(event){                                    
+        consultar:function(event){                                   
             this.estados.on = null;            
             $(event.currentTarget).attr('disabled',true);
             app.estado($("div#estado"),this.estados.load);

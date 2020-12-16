@@ -47,18 +47,18 @@ class User extends Authenticatable
     }
     public function grupos()
     {
-        return $this->belongsToMany(Grupo::class,'usuario_grupo', 'id_usuario', 'id_grupo')->withPivot('estado','rol');
+        return $this->belongsToMany(Grupo::class,'usuario_grupo', 'id_usuario', 'id_grupo');
     }
     public function semilleros()
     {
-        return $this->belongsToMany(Semillero_Invest::class,'usuario_grupo', 'id_usuario', 'id_semillero')->withPivot('id_semillero','estado','rol');
+        return $this->belongsToMany(Semillero_Invest::class,'usuario_semillero', 'id_usuario', 'id_semillero')->withPivot('id_semillero','rol','estado');
     }
     public function retos()
     {
-        return $this->belongsToMany(Reto::class, 'reto_usuarios', 'id_usuario', 'id_reto');
+        return $this->belongsToMany(Reto::class, 'reto_usuarios', 'id_usuario', 'id_reto')->withPivot('titulo','pregunta');
     }
-    public function institucion()
+    public function instituciones()
     {
-        return $this->belongsToMany('App\Institucion');
+        return $this->belongsToMany(Institucion::class,'usuario_institucion','id_usuario','id_institucion');
     }
 }

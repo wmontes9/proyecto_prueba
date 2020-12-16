@@ -79,8 +79,8 @@ class RegisterController extends Controller
         //$user = User::find($data['number_doc']);
         //Auth::user()->Grupo_Invest->toJson();
         $cant = count($usere);
-        if($cant==0){ //Si no existe para a crear uno nuevo
-            $user = User::create([
+        if($cant==0){ //Si no existe pasa a crear uno nuevo
+           $user = User::create([
                 'id_municipio' => $data['municipio'],
                 'nombre' => $data['name'],
                 'apellido' => $data['lastname'],

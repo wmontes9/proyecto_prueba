@@ -13,18 +13,17 @@ new Vue({
     },
     methods:{
         getRoles:function(){
-            const url = "/listaGruposHome";
+            const url = "/listaRoles";
             axios.get(url).then(responce => {
                 this.roles = responce.data;                
             });            
         },
         cambiaRol: function(){
             if($('#roles').val() !== ""){
-                $('#roles').parent().find('label').remove();
+                //$('#roles').parent().find('label').remove();
                 const url =  '/cambiarRol';                
                 axios.post(url,this.rolElegido).then(responce => {
-                    //$(location).attr("href","/home");
-                    //location.href = this.reloadTo;  
+                    location.href = this.reloadTo;  
                 });
             }                        
         },  

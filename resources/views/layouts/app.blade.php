@@ -12,7 +12,7 @@
         
         <!-- Scripts -->    
         <script src="{{ asset('js/app.js') }}"></script> 
-        <!--<script src="{{asset('js/controller/AppController.js')}}"></script> -->  
+        <script src="{{asset('js/controller/AppController.js')}}"></script> 
 
         <!-- Scripts -->
         {{-- datatables --}}
@@ -24,11 +24,17 @@
         <link rel="stylesheet" href="{{asset('js/sweet/jquery.sweet-modal.min.css')}}">
         <script>
         $(document).ready(function() {
+            $('#eventos').dataTable( {
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+                }
+            });
             $('#buscar').dataTable( {
                 "language": {
                     "url": "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
                 }
-            } );
+            });
+            
         } );
         </script>
         <!-- Fonts -->
@@ -44,8 +50,14 @@
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
         
 
-        <link href="{{ asset('css/nav.css') }}" rel="stylesheet">   
+        <link href="{{ asset('css/nav.css') }}" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.min.css">
+        <script src="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.js"></script>
+        <link rel="stylesheet" href="https://rawgit.com/lykmapipo/themify-icons/master/css/themify-icons.css">
+        
         <style>
+            
             .label-input{
                 position: relative;
             }
@@ -69,9 +81,12 @@
             .label-input select option{
                 background: white !important;
             }
+            .stepTitle, .wizard-title{
+             color: aliceblue !important;
+            }
         </style>                
     </head>
-    <body class="position-relative bg-light"> 
+    <body class="position-relative" style="background-color: #1a1814"> 
      
         @auth       
             <button class="button btn btn-dark h-100" id="open-close-nav">
@@ -83,14 +98,14 @@
             @auth   
                 <!--Nav Lateral-->                                          
                 <div class="navegador shadow-lg" id="nav">
-                    <aside class="left-nav h-100 d-flex flex-column position-fixed bg-white">                    
+                    <aside class="left-nav h-100 d-flex flex-column position-fixed" style="background-color: rgba(40, 14, 4, 0.95); color: #fff;">                    
                         <div class="group">
                             <h4 class="h4 pl-2">Innovacion</h4>
                             <div class="nav-header mb-3">
-                                <button type="button" class="button btn btn-warning d-flex justify-content-between align-items-center rounded" data-toggle="collapse" data-target="#user-menu">                            
+                                <button type="button" class="button btn btn-warning d-flex justify-content-between align-items-center rounded" data-toggle="collapse" data-target="#user-menu" style="background-color: #E06F12">                            
                                     <div>
                                         <i class="far fa-user mt-1 mr-2"></i>
-                                        {{Auth::user()->nombre_usuario}}
+                                        {{Auth::user()->nombre}} {{Auth::user()->apellido}}
                                     </div>
                                     <i class="fas fa-chevron-down mr-2 mx-2"></i>
                                 </button>                                                    
@@ -130,7 +145,7 @@
                                     <strong>Roles</strong><i>(Seleccionar rol actual.)</i>
                                 </label>
                                 <select name="group-select" id="roles" class="form-control border-warning" v-on:change="cambiaRol" v-model="rolElegido.rol">
-                                    <option v-for="rol in roles" v-bind:value="rol.id_grupo">@{{rol.nombre}}</option>                                    
+                                    <option  v-for="rol in roles"  v-bind:value="rol.id_grupo">@{{rol.nombre}}</option>                                    
                                 </select>                                
                             </div>
                         </div>
@@ -140,7 +155,7 @@
                                     @include(Session::get('contenido_nav'))
                                 @else
                                     @include('layouts.contenidoNav.personaNatural')
-                                @endif                                
+                                @endif                              
                             </div>                                                      
                         </div>                             
                         <div class="nav-footer text-center text-white bg-dark">
@@ -159,7 +174,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('/')}}">Inicio <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{{url('/home')}}">Inicio <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -237,7 +252,7 @@
             </div>      
         </div>    
         <script src="{{asset('js/controller/RolController.js')}}"></script>  
-        <script src="{{asset('js/nav.js')}}"></script>        
+        <script src="{{asset('js/nav.js')}}"></script>       
     </body>
 </html>
 
