@@ -12,6 +12,12 @@ new Vue({
         reloadTo: "/home",
     },
     methods:{
+        mytable(){
+			const newLocal = '#retolist';
+			$(function(){
+				$(newLocal).DataTable();
+			});
+		},
         getRoles:function(){
             const url = "/listaRoles";
             axios.get(url).then(responce => {

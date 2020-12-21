@@ -38,6 +38,7 @@ new Vue({
             this.fillReto.elementos = reto.elementos;
             this.fillReto.descripcion_s = reto.descripcion_s;
             this.fillReto.evaluacion = reto.evaluacion;
+            this.fillReto.estado = reto.estado;
 			this.fillReto.url_imagen = reto.url_imagen;		
 			$("#editReto").modal("show");
         },

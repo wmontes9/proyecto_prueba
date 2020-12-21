@@ -52,6 +52,14 @@
 							</textarea>
 						</div>
 						<div class="form-group">
+							<label for="">Estado: </label>
+							<!--<input type="checkbox" name="estado" :value="fillEvento.estado" v-model="fillEvento.estado" />-->
+							<input type="radio" value="false" name="estado" v-model="fillSolucion.estado">
+							<label for="uno">Inactivo</label>
+							<input type="radio" value="true" name="estado" v-model="fillSolucion.estado">
+							<label for="Dos">Activo</label>
+						</div>
+						<div class="form-group">
 							<label for="">Imagen</label>
 							<input type="file" id="image_solucion" name="image_solucion"  class="form-control">
 						</div>

@@ -17,10 +17,17 @@ new Vue({
         file:"",
 	},
 	methods:{
+		mytable(){
+			const newLocal = '#solucionindex';
+			$(function(){
+				$(newLocal).DataTable();
+			});
+		},
 		getSoluciones:function(){
 			var url = "getSolucion";
 			axios.get(url).then(response=>{
 			  this.solucions = response.data
+			  this.mytable()
 			});
 			},
 			getRetos:function(){
@@ -56,6 +63,7 @@ new Vue({
 				this.fillSolucion.planteamiento = solucion.planteamiento;
 				this.fillSolucion.referencias = solucion.referencias;
 				this.fillSolucion.image_solucion = solucion.image_solucion;
+				this.fillSolucion.estado = solucion.estado;
 				var ruta = $("#ruta").val();
             	var url = ruta+""+this.id_solucion;
             	$("#formUpdateSolucion").attr("action",url);

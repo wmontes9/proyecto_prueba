@@ -100,13 +100,13 @@ class RetoController extends Controller
         $reto->elementos_ps = $request->elementos_ps;
         $reto->evaluacion = $request->evaluacion;
         $reto->url_imagen=$nombre[2];
-        $reto->estado="inactivo";
+        $reto->estado="false";
         $reto->save();
 
         $reto->usuarios()->sync(Auth::user()->id_usuario);
         $reto->sector_economico()->sync($request->id_sector);
-        
-        return redirect()->back();
+        return redirect('retos');
+        //return redirect()->back();
     }
 
     /**
@@ -170,6 +170,7 @@ class RetoController extends Controller
         $reto->recursos_e = $request->recursos_e;
         $reto->elementos_ps = $request->elementos_ps;
         $reto->evaluacion = $request->evaluacion;
+        $reto->estado = $request->estado;
         $reto->save();
         return redirect('admin/retos');
     }

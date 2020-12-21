@@ -13,26 +13,31 @@
             <a class="btn btn-small btn-success" href="{{ route('retos.create') }}">Nuevo</a>
             @endauth
             <div class="clearfix"></div>
-            <table class="table table-responsive" style="margin-top: 10px;">
-                <tr>
-                    <th>Id</th>
-                    <th>Título</th>
-                    <th style="width: 350px;">Pregunta retadora</th>
-                    <th style="width: 200px;">Imagen</th>
-                    <th colspan="5" class="">Opciones</th>
-                </tr>
-                <tr v-for="reto in retos">
-                    <td>@{{reto.id_reto}}</td>
-                    <td><a href="" v-on:click.prevent="soluciones(reto.id_reto)">@{{reto.titulo}}</a></td>
-                    <td>@{{reto.pregunta}}</td>
-                    <td>
-                        <img :src="'{{asset('storage/imgReto')}}/'+reto.url_imagen" class="img-responsive" width="100%">
-                    </td>
-                    {{--@auth--}}
-                    <td><a href="" v-on:click.prevent="editReto(reto)"><i class="far fa-edit"></i></a></td>
-                    {{--@endauth--}}
-                    <td><a href="" v-on:click.prevent="deleteReto(reto.id_reto)"><i class="fas fa-trash-alt"></i></a></td>
-                </tr>
+            <table id="retolist" class="table table-responsive" style="margin-top: 10px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Título</th>
+                        <th scope="col" style="width: 350px;">Pregunta retadora</th>
+                        <th scope="col" style="width: 200px;">Imagen</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="reto in retos">
+                        <td scope="row">@{{reto.id_reto}}</td>
+                        <td><a href="" v-on:click.prevent="soluciones(reto.id_reto)">@{{reto.titulo}}</a></td>
+                        <td>@{{reto.pregunta}}</td>
+                        <td>
+                            <img :src="'{{asset('storage/imgReto')}}/'+reto.url_imagen" class="img-responsive" width="100%">
+                        </td>
+                        {{--@auth--}}
+                        <td><a href="" v-on:click.prevent="editReto(reto)"><i class="far fa-edit"></i></a></td>
+                        {{--@endauth--}}
+                        <td><a href="" v-on:click.prevent="deleteReto(reto.id_reto)"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>

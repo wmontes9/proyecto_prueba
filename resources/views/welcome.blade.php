@@ -193,135 +193,31 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="menu-flters">
               <li data-filter="*" class="filter-active">Todos</li>
-              <li data-filter=".filter-starters">Turismo</li>
-              <li data-filter=".filter-salads">Marketing</li>
-              <li data-filter=".filter-specialty">Industrias 4.0</li>
+              @foreach ($sectores as $sector)
+                <li data-filter=".filter-{{ $sector['id_sector_economico'] }}">{{ $sector['nombre'] }}</li>
+              @endforeach
             </ul>
           </div>
         </div>
 
         <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-6 menu-item filter-starters">
-            <img src="assets/img/menu/Reto 1.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Reto 1 </a><span></span>
+          @foreach ($retos as $reto)
+            <div class="col-lg-6 menu-item filter-{{ $reto->id_sector_economico }}">
+              <img src='{{ asset("storage/imgReto")}}/{{ $reto->url_imagen }}' class="img-thumbnail menu-img" alt="">
+              <div class="menu-content">
+                <a href="#">{{ $reto->titulo }}</a><span></span>
+              </div>
+              <div class="menu-ingredients">
+               {{ $reto->pregunta }}
+              </div>
             </div>
-            <div class="menu-ingredients">
-              Estrategias para la incorporación y apropiación de las nuevas tecnologías en los sectores
-               priorizados del departamento de Boyacá - Turismo, Servicios, Metalmecánico,
-                Agroindustria y Minero.
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-specialty">
-            <img src="assets/img/menu/Reto 9.png" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Reto 9</a><span></span>
-            </div>
-            <div class="menu-ingredients">
-              Diseñar una estrategia de relacionamiento entre los actores del ecosistema de base tecnológica e
-              innovación.
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-starters">
-            <img src="assets/img/menu/Reto 2.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Reto 2 </a><span></span>
-            </div>
-            <div class="menu-ingredients">
-              Formulación de estrategias de mercadeo, desde las industrias 4.0 en los sectores
-               priorizados del departamento de Boyacá - Turismo, Servicios, Metalmecánico, Agroindustria y Minero
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-salads">
-            <img src="assets/img/menu/Reto 4.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Reto 4</a><span></span>
-            </div>
-            <div class="menu-ingredients">
-              Creación de un sistema integrado de información para el sector turismo.
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-specialty">
-            <img src="assets/img/menu/cacao.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Reto 8</a><span></span>
-            </div>
-            <div class="menu-ingredients">
-              Estudio de caracterización del Sector Cacao en el departamento de Boyacá.
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-starters">
-            <img src="assets/img/menu/reto3.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Reto 3</a><span></span>
-            </div>
-            <div class="menu-ingredients">
-              Diseño de estrategias para la incorporación y apropiación de las metodologías 
-              agiles en los procesos de innovación en los sectores priorizados del departamento 
-              de Boyacá - Turismo, Servicios, Metalmecánico, Agroindustria y Minero.
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-salads">
-            <img src="assets/img/menu/Reto 5.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Reto 5</a><span></span>
-            </div>
-            <div class="menu-ingredients">
-              Sistema de marketing integral para las apuestas productivas identificadas en la AICCT
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-salads">
-            <img src="assets/img/menu/Reto 6.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Reto 6</a><span></span>
-            </div>
-            <div class="menu-ingredients">
-              Proyecto de acercamiento del sector empresarial al sistema de I+D+I - CDT
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-specialty">
-            <img src="assets/img/menu/Reto 7.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Reto 7</a><span></span>
-            </div>
-            <div class="menu-ingredients">
-              Proyecto de inteligencia de mercados que permita monitorear el mercado de forma permanente.
-            </div>
-          </div>
+          @endforeach
 
         </div>
 
       </div>
     
     </section><!-- End Menu Section -->
-    <section id="menu" class="menu section-bg">
-      <div class="container" data-aos="fade-up">
-        <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
-          @foreach ($retos as $reto)
-          <div class="col-lg-6 menu-item" >
-            <img src='{{ asset("storage/imgReto")}}/{{ $reto['url_imagen'] }}' class="img-thumbnail menu-img" alt="">
-            <div class="menu-content">
-              <h5><a href="#">{{ $reto['titulo'] }}</a><span></span></h5>
-            </div>
-            
-            
-            <div class="menu-ingredients">
-              <p class="card-text">{{$reto['pregunta']}}</p>
-            </div>
-          </div>  
-          @endforeach 
-        </div>
-      </div>
-    </section>
     <!-- ======= Specials Section ======= -->
     <section id="specials" class="specials">
       <div class="container" data-aos="fade-up">
@@ -820,38 +716,52 @@
           </div>
 
           <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="form-row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
-                </div>
-                <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Área" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validate"></div>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="message" rows="8" data-rule="required" data-msg="Please write something for us" placeholder="Mensaje"></textarea>
-                <div class="validate"></div>
-              </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Enviar mensaje</button></div>
-            </form>
-
+              <div class="line"></div>
+                <h3 class="text-center">Contactenos</h3>
+                <form enctype="multipart/form-data" action="contact" method="POST">
+                  {{csrf_field()}}			
+                  <div>
+                    <label for="name">Nombre y apellidos  <span class="required">*</span></label>
+                    <div class="inputs form-group">
+                      <input class="aweform form-control"
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Ingrese su nombre" 
+                        value="{{ old('name')}}" 
+                        required/>
+                      {!! $errors -> first('name','<small>:message</small>')!!}
+                    </div>  
+                  </div>
+                  
+                  <div>
+                    <label for="email">Correo electrónico<span class="required">*</span></label>
+                    <div class="inputs form-group">
+                      <input class="aweform form-control" type="text" id="email" name="email" placeholder="E-mail..." value="{{ old('email')}}" required />
+                      {!! $errors -> first('email','<small>:message</small>')!!}
+                    </div>  
+                  </div>
+                  
+                  <div>
+                    <label for="phone">Teléfono <span class="required">*</span></label>
+                    <div class="inputs form-group">
+                      <input class="aweform small form-control" type="text" id="phone" name="phone" placeholder="Teléfono" value="{{ old('phone')}}" required/>
+                      {!! $errors -> first('phone','<small>:message</small>')!!}
+                    </div>  
+                  </div>
+                  <div>
+                    <label for="message">Mensaje <span class="required">*</span></label>
+                    <div class="inputs form-group">
+                      <textarea class="aweform form-control" id="message" name="message" rows="6" cols="5" placeholder="Ingrese su mensaje, solicitud o consulta" value="{{ old('message')}}" required></textarea>
+                      {!! $errors -> first('message','<small>:message</small>')!!}
+                    </div>  
+                  </div>		
+                  <div class="form-group text-center">
+                    <button class="btn btn-success"><i class="fa fa-chevron-circle-right"></i> Enviar</button>   
+                  </div>
+                </form>
           </div>
-
         </div>
-
       </div>
     </section><!-- End Contact Section -->
 

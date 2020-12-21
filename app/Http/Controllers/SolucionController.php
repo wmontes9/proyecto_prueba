@@ -87,7 +87,7 @@ class SolucionController extends Controller
         $solucion->planteamiento = $request->planteamiento;
         $solucion->referencias = $request->referencias;
         $solucion->image_solucion=$nombre[2];
-        $solucion->estado="inactivo";
+        $solucion->estado="false";
         $solucion->save();
         $solucion->usuarios()->sync(Auth::user()->id_usuario);
         return redirect('admin/solucion');
@@ -142,7 +142,7 @@ class SolucionController extends Controller
          $solucion->justificacion = $request->justificacion;
          $solucion->planteamiento = $request->planteamiento;
          $solucion->referencias = $request->referencias;
-         $solucion->estado="inactivo";
+         $solucion->estado = $request->estado;
          $solucion->save();
         
         return redirect('admin/solucion');

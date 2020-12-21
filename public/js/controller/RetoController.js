@@ -2,6 +2,9 @@ Vue.use(VueFormWizard)
 new Vue({
 	el:"#appRetos",
 	created:function(){
+		//this.getRetos();
+	},
+	mounted: function(){
 		this.getRetos();
 	},
 	data:{
@@ -32,6 +35,12 @@ new Vue({
 
 	},
 	methods:{
+		mytable(){
+			const newLocal = '#retolist';
+			$(function(){
+				$(newLocal).DataTable();
+			});
+		},
 		onCompletee: function(){
 			$("#formUpdateReto").submit();
 		 },
@@ -39,6 +48,7 @@ new Vue({
 			var url = "/admin/getretos";
 			axios.get(url).then(response=>{
 			  this.retos = response.data
+			  this.mytable();
 			});
 			},
 			createReto:function(){

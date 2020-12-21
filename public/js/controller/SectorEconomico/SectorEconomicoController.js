@@ -11,10 +11,17 @@ new Vue({
         accion:"",
     },
     methods:{
+        mytable(){
+			const newLocal = '#sectorlist';
+			$(function(){
+				$(newLocal).DataTable();
+			});
+		},
         getSectores:function(){
             const url = "/listaSectores";
             axios.get(url).then(responce => {
-                this.sectores = responce.data;                
+                this.sectores = responce.data; 
+                this.mytable();               
             });            
         },
         createSectorEconomico:function(){

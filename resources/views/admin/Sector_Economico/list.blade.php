@@ -11,24 +11,29 @@
                     <!--<a class="btn btn-small btn-success" href="{{ route('SectorEconomico.create') }}">Nuevo</a>-->
                     <!--<a href="#newSectorEconomico" data-toggle="modal" class="btn btn-primary pull-right">Nuevo</a>-->
                     <a href="" class="btn btn-primary pull-right" v-on:click.prevent="nuevoSectorEconomico()">Nuevo</a>
-                    <table class="table table-responsive" style="margin-top: 10px;">
-                        <tr>
-                            <th>Id</th>
-                            <th>Nombre</th>
-                            <th colspan="2">Opciones</th>
-                            <th>Retos</th>
-                            <!--
-                            <th style="width: 200px;">Imagen</th>-->
-                        </tr>
-                        <tr v-for="sector in sectores">
-                            <td>@{{sector.id_sector_economico}}</td>
-                            <td>@{{sector.nombre}}</td>
-                            {{--@auth--}}
-                            <td><a href="" v-on:click.prevent="editarSectorEconomico(sector)"><i class="far fa-edit"></i></a></td>
-                            {{--@endauth--}}
-                            <td><a href="" v-on:click.prevent="eliminarSectorEconomico(sector.id_sector_economico)"><i class="fas fa-trash-alt"></i></a></td>
-                            <td><a href="" v-on:click.prevent="retosSector(sector.id_sector_economico)">Retos</a></td>
-                        </tr>
+                    <table id="sectorlist" class="table table-responsive" style="margin-top: 10px;">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                                <th>Retos</th>
+                                <!--
+                                <th style="width: 200px;">Imagen</th>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="sector in sectores">
+                                <td>@{{sector.id_sector_economico}}</td>
+                                <td>@{{sector.nombre}}</td>
+                                {{--@auth--}}
+                                <td><a href="" v-on:click.prevent="editarSectorEconomico(sector)"><i class="far fa-edit"></i></a></td>
+                                {{--@endauth--}}
+                                <td><a href="" v-on:click.prevent="eliminarSectorEconomico(sector.id_sector_economico)"><i class="fas fa-trash-alt"></i></a></td>
+                                <td><a href="" v-on:click.prevent="retosSector(sector.id_sector_economico)">Retos</a></td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

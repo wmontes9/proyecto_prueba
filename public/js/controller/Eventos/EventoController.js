@@ -1,9 +1,13 @@
+//import DataTable from 'datatable';
 //import DataTable from 'laravel-vue-datatable';
 Vue.use(VueFormWizard)
 //Vue.use(DataTable);
 new Vue({
 	el:"#appEventos",
 	created:function(){
+		this.getEventos()
+	},
+	mounted: function(){
 		this.getEventos()
 	},
 	data:{
@@ -21,8 +25,9 @@ new Vue({
 	},
 	methods:{
 		mytable(){
+			const newLocal = '#teventos';
 			$(function(){
-				$('#eventos'.DataTable())
+				$(newLocal).DataTable();
 			});
 		},
 		onComplete: function(){
@@ -31,7 +36,7 @@ new Vue({
 		getEventos:function(){
 			var url = "getEventos";
 			axios.get(url).then(response=>{
-			  this.eventos = response.data
+			  this.eventos = response.data;
 			  this.mytable();
 			});
 			},

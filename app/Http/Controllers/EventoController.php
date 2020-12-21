@@ -21,7 +21,7 @@ class EventoController extends Controller
     public function getEventos(){
         $eventos = Evento::all()->toArray();
         $data = $eventos;
-        return  response()->json($data,200);
+        return  $data;//response()->json($data,200);
     }
     /**
      * Show the form for creating a new resource.
