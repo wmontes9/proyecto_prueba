@@ -18,14 +18,12 @@ class InicioController extends Controller
     public function index(){
 
         $lis_aliados = AliadosEstrategicos::all()->toArray();
-        //$retos = Reto::where("estado","=",'true')->get()->toArray();
         $retos = DB::table('retos')
             ->join('reto_sector_economico', 'retos.id_reto', '=', 'reto_sector_economico.id_reto')
             ->join('sector_economicos', 'reto_sector_economico.id_sector_economico', '=', 'sector_economicos.id_sector_economico')
             ->where('retos.estado', '=', 'true')
             ->select('retos.*', 'reto_sector_economico.id_sector_economico')
             ->get()->toArray();
-        //dd($retos);
         $eventos = Evento::where("estado","=",'true')->get()->toArray();
         $sectores = Sector_Economico::all()->toArray();
         return view('welcome',compact('lis_aliados','retos','eventos','sectores'));

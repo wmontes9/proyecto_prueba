@@ -38,13 +38,13 @@ class InstitucionController extends Controller
 
             $this->agregarActividades($institucion->id_institucion, $request->all());
             
-            $usuario_grupo = Auth::user()->grupos;
-            foreach ($usuario_grupo as $grupo) {
-                if($grupo->pivot->id_usuario === $request->session()->get('rolActual')){
-                    $grupo->pivot->id_institucion = $institucion->id_institucion;
-                    $grupo->pivot->rol = "lider";
-                    $grupo->pivot->estado = 1;
-                    $grupo->pivot->save();
+            $usuario_institucion = Auth::user()->instituciones;
+            foreach ($usuario_institucion as $institucions) {
+                if($institucion->pivot->id_usuario === $request->session()->get('rolActual')){
+                    $institucions->pivot->id_institucion = $institucion->id_institucion;
+                    $institucions->pivot->rol = "lider";
+                    $institucions->pivot->estado = 1;
+                    $institucions->pivot->save();
                 }
             }
             return redirect()->route('home');
@@ -206,11 +206,21 @@ class InstitucionController extends Controller
         $id_empresa = $request->input('id_empresa');
         $usuario_grupo = Auth::user()->grupos;
         foreach ($usuario_grupo as $grupo) {
+            if($grupo->pivot->id_grupo === $request->session()->get('rolActual')){  
+                $user = User::findOrFail(Auth::user()->id_usuario); 
+                $user->instituciones()->sync($id_empresa);
+                $user->pivot->rol = "lider"; 
+                $user->pivot->estado = true;                         
+                
+            }
+        }
+        /*$usuario_grupo = Auth::user()->grupos;
+        foreach ($usuario_grupo as $grupo) {
             if($grupo->pivot->id_grupo === $request->session()->get('rolActual')){                                
                 $grupo->pivot->id_institucion = $id_empresa;
                 $grupo->pivot->save();
             }
-        }
+        }*/
        return redirect()->back();
     } 
     //Administracion de Usuarios    
