@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Area_Conocimiento extends Model
 {
-    protected $table="area_conocimiento";
+    protected $table="area_conocimientos";
     protected $primaryKey = "id_area_conocimiento";
     protected $fillable = ['nombre'];
 

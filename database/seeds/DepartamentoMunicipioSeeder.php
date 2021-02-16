@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class departamentos_municipios extends Seeder
+class DepartamentoMunicipioSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -29,5 +29,6 @@ class departamentos_municipios extends Seeder
                 );   
             }     
         }
-    }     
+    }
 }
+
