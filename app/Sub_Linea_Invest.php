@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sub_Linea_Invest extends Model
 {
-    protected $table = "sub_linea_invest";
+    protected $table = "sub_linea_invests";
 
     protected $fillable = ["id_linea_invest","nombre","descripcion"];
 

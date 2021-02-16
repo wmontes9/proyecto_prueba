@@ -181,10 +181,12 @@
                                 Grupo investigación
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Área de conocimiento</a>
-                                    <a class="dropdown-item" href="#">Línea investigación</a>
-                                    <a class="dropdown-item" href="#">Sub-linea investigación</a>
-                                    <a class="dropdown-item" href="#">Semilleros</a>
+                                    <a class="dropdown-item" href="{{url('areaconocimiento')}}">Area de conocimiento</a>
+                                    <a class="dropdown-item" href="{{url('grupoinvestigacion')}}">Grupo de investigación</a>
+                                    <a class="dropdown-item" href="{{url('lineainvestigacion')}}">Línea investigación</a>
+                                    <a class="dropdown-item" href="{{url('sublineainvestigacion')}}">Sub-línea investigación</a>
+                                    <a class="dropdown-item" href="{{url('semilleros')}}">Semilleros</a>
+                                    
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
