@@ -7,8 +7,8 @@
         right: 1%;
     }
 </style>
-    @if (count(Auth::user()->instituciones) > 0)          
-        @if (Auth::user()->grupos->first()->pivot->rol == "lider")
+    @if (count(Auth::user()->instituciones) > 0)        
+        @if (Auth::user()->instituciones->first()->pivot->rol == "lider")
             <div id="institucion">
                 @include('institucion.datosInstitucion.index')
             </div>

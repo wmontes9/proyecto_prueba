@@ -93,11 +93,11 @@
       <div class="row">
         <div class="col-lg-8">
           <h1>Bien<span>venido</span></h1>
-          <h2>Plantea tu Reto!</h2>
+          <h2>Plataforma de innovación abierta!</h2>
 
           <div class="btns">
             <a href="#menu" class="btn-menu animated fadeInUp scrollto">Retos</a>
-            <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Plantea la Solución</a>
+            <a href="#login" data-toggle="modal" class="btn-book animated fadeInUp scrollto">Plantea tu reto</a>
           </div>
         </div>
         <div class="col-lg-4 d-flex align-items-center justify-content-center" data-aos="zoom-in" data-aos-delay="200">
@@ -205,7 +205,7 @@
             <div class="col-lg-6 menu-item filter-{{ $reto->id_sector_economico }}">
               <img src='{{ asset("storage/imgReto")}}/{{ $reto->url_imagen }}' class="img-thumbnail menu-img" alt="">
               <div class="menu-content">
-                <a href="#">{{ $reto->titulo }}</a><span></span>
+                <a href="{{url('/')}}?page=retos&id={{ $reto->id_reto}}">{{ $reto->titulo }}</a><span></span>
               </div>
               <div class="menu-ingredients">
                {{ $reto->pregunta }}
@@ -349,7 +349,8 @@
                 <ul>
                   <li><i class="icofont-check-circled"></i>Ponentes: {{$evento['ponentes']}}</li>
                   <li><i class="icofont-check-circled"></i> Lugar: {{$evento['lugar']}} </li>
-                  <li><i class="icofont-check-circled"></i> Fecha: {{$evento['fecha']}}</li>
+                  <li><i class="icofont-check-circled"></i> Fecha de inicio: {{$evento['fecha_inicio']}}</li>
+                  <li><i class="icofont-check-circled"></i> Fecha fin: {{$evento['fecha_fin']}}</li>
                 </ul>
                 <p>
                   {{$evento['objetivo']}}
@@ -363,6 +364,7 @@
     </section><!-- End Events Section -->
 
     <!-- ======= Book A Table Section ======= -->
+    <!--
     <section id="book-a-table" class="book-a-table">
       <div class="container" data-aos="fade-up">
 
@@ -411,7 +413,7 @@
         </form>
 
       </div>
-    </section><!-- End Book A Table Section -->
+    </section>--><!-- End Book A Table Section -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">
@@ -423,66 +425,18 @@
         </div>
 
         <div class="owl-carousel testimonials-carousel" data-aos="zoom-in" data-aos-delay="100">
-
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Estoy encantada con la plataforma, la temática y la ayuda recibida y personalizada.
-               La plataformas en la nube, me he atrevido a crear un historia aplicando los conocimientos.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-            <h3>Julian Mateus</h3>
-            <h4>Ceo &amp; epson</h4>
-          </div>  
-
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              La atención ha sido de sobresaliente. Muchas gracias. 
-              Ha sido difícil en algunas situaciones pero debido a a la complejidad de la empresa
-               y de los retos que enfrentamos.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-            <h3>Sara Acuña</h3>
-            <h4>Diseñadora</h4>
-          </div>
-
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              La experiencia es fantástica logre junto con el experto innovar en la idea de negocio que tengo. 
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-            <h3>Fernanda Martinez</h3>
-            <h4>Docente Universitario</h4>
-          </div>
-
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Excelente curso, tanto la estructura como la calidad de los contenidos,
-               así como la experiencia y comunicación con el experto.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-            <h3>Martin Fernandez</h3>
-            <h4>Independiente</h4>
-          </div>
-
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Lo aprendido con la plataforma ha sido de gran ayuda y la atención del tutor es inmemorable.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-            <h3>John Fredy Laso</h3>
-            <h4>Ingeniero Industrial</h4>
-          </div>
-
+          @foreach ($comentarios as $comentario)
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+               {{$comentario['descripcion']}}
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="{{asset('/storage/imgUsuario')}}/{{ $comentario['usuarios']['url_imagen'] }}" class="testimonial-img" alt="">
+              <h3>{{$comentario['usuarios']['nombre']}} {{ $comentario['usuarios']['apellido'] }}</h3>
+              <h4>{{ $comentario['usuarios']['profesion'] }}</h4>
+            </div>  
+          @endforeach
         </div>
 
       </div>
@@ -501,16 +455,24 @@
       <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row no-gutters">
-
+          @foreach ($galerias as $galeria)
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="{{asset('/storage/imgGaleria')}}/{{ $galeria['url_imagen'] }}" class="venobox" data-gall="gallery-item">
+                  <img src="{{asset('/storage/imgGaleria')}}/{{ $galeria['url_imagen'] }}" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+          @endforeach
           <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/imagen para fotos 2.JPG" class="venobox" data-gall="gallery-item">
-                <img src="assets/img/gallery/imagen para fotos 2.JPG" alt="" class="img-fluid">
+            <div class="gallery-item text-center align-self-center">
+              <a href="https://sites.google.com/misena.edu.co/fotografias/inicio" target="blanck">
+                <h1>+</h1>
+                <img src="assets/img/gallery/fotografias.png" alt="" class="img-fluid">
               </a>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-4">
+          <!--<div class="col-lg-3 col-md-4">
             <div class="gallery-item">
               <a href="assets/img/gallery/imagen para fotos 3.JPG" class="venobox" data-gall="gallery-item">
                 <img src="assets/img/gallery/imagen para fotos 3.JPG" alt="" class="img-fluid">
@@ -564,7 +526,7 @@
                 <img src="assets/img/gallery/imagen para foto8.JPG" alt="" class="img-fluid">
               </a>
             </div>
-          </div>
+          </div>-->
 
         </div>
 
@@ -581,60 +543,25 @@
         </div>
 
         <div class="row">
-
+          @foreach ($mentores as $mentor)
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="zoom-in" data-aos-delay="100">
-              <img src="assets/img/expertos/team-image2.jpg" class="img-fluid" alt="">
+              <img src="{{asset('/storage/imgUsuario')}}/{{ $mentor['url_imagen'] }}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Carmen Cecilia Zuluaga</h4>
-                  <span>Administradora de empresas</span>
+                  <h4>{{ $mentor['nombre'] }} {{ $mentor['apellido'] }}</h4>
+                  <span>{{ $mentor['profesion'] }}</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
+                  <a href="{{ $mentor['twitter'] }}" target="blanck"><i class="icofont-twitter"></i></a>
+                  <a href="{{ $mentor['facebook'] }}" target="blanck"><i class="icofont-facebook"></i></a>
+                  <a href="{{ $mentor['instagram'] }}" target="blanck"><i class="icofont-instagram"></i></a>
+                  <a href="{{ $mentor['linkedin'] }}" target="blanck"><i class="icofont-linkedin"></i></a>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member" data-aos="zoom-in" data-aos-delay="200">
-              <img src="assets/img/expertos/team-image1.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Jeinson Bello</h4>
-                  <span>Ingeniero Industrial</span>
-                </div>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member" data-aos="zoom-in" data-aos-delay="300">
-              <img src="assets/img/expertos/team-image3.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Wilson Montes</h4>
-                  <span>Ingeniero Electrónico</span>
-                </div>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          @endforeach
 
         </div>
 
@@ -656,7 +583,7 @@
             {{$values['descripcion']}}
           <a target="_blank" href="{{ $values ['url'] }}"><img src="images/{{ $values['logo'] }}" class="card-img" height="200" ></a>
           <h3 class="card-title" style="text-decoration:none"><a href="{{route('aliados_estrategicos.show',$values)}}">{{ $values['nombre'] }}</a></h3>
-          <h4>Dirección: &amp;Cl. 21 #10-52 PBX (8)7474660.</h4>
+          <!--<h4>Dirección: &amp;Cl. 21 #10-52 PBX (8)7474660.</h4>-->
         </div>
         @endforeach   
     </div>

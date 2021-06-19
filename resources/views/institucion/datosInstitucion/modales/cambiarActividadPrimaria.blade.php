@@ -1,6 +1,6 @@
 <div id="cambiar_primaria" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color: rgba(40, 14, 4, 0.95); color: #fff;">
             <div class="modal-header">
                 <h3 class="modal-title w-50">Cambiar Actividad Primaria</h3>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>

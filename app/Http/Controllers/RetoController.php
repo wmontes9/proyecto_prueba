@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 
 use App\Reto;
 use App\User;
+use App\Institucion;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,8 +55,11 @@ class RetoController extends Controller
      * Obtener los retos para
      * el usuario autenticado
      */
-    public function getRetosUsuario(){        
-        return Auth::user()->retos->toJson();
+    public function getRetosUsuario(){  
+          
+        $retos = Auth::user()->retos->toJson();
+        //dd($retos);
+        return $retos;
     }
     public function getinfo(){
         return view("retos.list"); 
@@ -255,14 +259,25 @@ class RetoController extends Controller
      */
     public function getRetosEmpresa($id)
     {
-        return user::with([
+        $retos=array(); 
+        $usuarios=array();
+        $usuarios =  Institucion::findOrFail($id);
+        $usuarios = $usuarios->usuarios;
+        foreach( $usuarios as $usuario){
+            array_push($retos,$usuario->retos);
+            foreach($usuario->retos as $reto){
+                array_push($retos,$reto->usuarios);
+            }
+        }
+        return $retos;
+       /* return user::with([
             'retos', 
             'instituciones' => function($query) use ($id){
                 $query->select('usuario_grupo.estado')->where('usuario_grupo.id_institucion', '=', $id);
             }
             ])->whereHas('instituciones', function($query) use ($id){
                 $query->where('usuario_grupo.id_institucion', '=', $id);
-        })->get();
+        })->get();*/
     }
     /**
      * Publicar Reto

@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Evento;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Session;
+use DB;
 class EventoController extends Controller
 {
     /**
@@ -19,8 +21,19 @@ class EventoController extends Controller
         return view("admin.Eventos.index");
     }
     public function getEventos(){
-        $eventos = Evento::all()->toArray();
-        $data = $eventos;
+        $rolActual = Session::get('rolActual');
+        if($rolActual == 6){
+            $eventos = Evento::all()->toArray();
+            $data = $eventos;
+        }elseif($rolActual == 1){
+            $eventos = DB::table('eventos')
+            ->join('usuarios', 'usuarios.id_usuario', '=', 'eventos.id_usuario')
+            ->join('usuario_grupo', 'usuario_grupo.id_usuario', '=', 'usuarios.id_usuario')
+            ->where('usuario_grupo.id_grupo', '=', 1)
+            ->select('eventos.*', 'usuario_grupo.id_grupo')
+            ->get()->toArray();
+            $data = $eventos;
+        }
         return  $data;//response()->json($data,200);
     }
     /**
@@ -41,18 +54,24 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
+        $seconds = 00;
+        $fecha_inicial = $request->fecha_inicio.' '.$request->hora_inicio.':'.$request->minuto_inicio.':'.$seconds;
+        $fecha_final = $request->fecha_fin.' '.$request->hora_fin.':'.$request->minuto_fin.':'.$seconds;
         $evento = new Evento;        
         $file = $request->url_imagen->store('public/imgEvento');     
         $nombre = explode('/',$file);
+        $evento->id_usuario = Auth::user()->id_usuario;
         $evento->titulo = $request->titulo;
         $evento->subtitulo = $request->subtitulo;
         $evento->descripcion = $request->descripcion;
         $evento->lugar = $request->lugar;
-        $evento->fecha = $request->fecha;
+        $evento->fecha_inicio = $request->fecha_inicio;
+        $evento->fecha_fin = $request->fecha_fin;
         $evento->objetivo = $request->objetivo;
         $evento->ponentes = $request->ponentes;
         $evento->estado = 'false';
         $evento->url_imagen=$nombre[2];
+        $evento->url_evento = $request->url_evento;
         $evento->save();
         //$reto->usuarios()->sync(Auth::user()->id_usuario);
         return view('admin.Eventos.index');
@@ -102,10 +121,15 @@ class EventoController extends Controller
          $evento->subtitulo = $request->subtitulo;
          $evento->descripcion = $request->descripcion;
          $evento->lugar = $request->lugar;
-         $evento->fecha = $request->fecha;
+         $evento->fecha_inicio = $request->fecha_inicio;
+         $evento->fecha_fin = $request->fecha_fin;
          $evento->objetivo = $request->objetivo;
          $evento->ponentes = $request->ponentes;
-         $evento->estado = $request->estado;
+         $rolActual = Session::get('rolActual');
+         if($rolActual == 6){
+            $evento->estado = $request->estado;
+         }
+         $evento->url_evento = $request->url_evento;
          $evento->save();
          return redirect('eventos');
   

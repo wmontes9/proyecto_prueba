@@ -10,33 +10,37 @@
                     <div class="clearfix"></div>
                     <!--<a class="btn btn-small btn-success" href="{{ route('SectorEconomico.create') }}">Nuevo</a>-->
                     <!--<a href="#newSectorEconomico" data-toggle="modal" class="btn btn-primary pull-right">Nuevo</a>-->
-                    <a href="" class="btn btn-primary pull-right" v-on:click.prevent="nuevoGrupo()">Nueva Grupo</a>
-                    <table class="table table-responsive" style="margin-top: 10px;">
-                        <tr>
-                            <th>Id</th>
-                            <th>Sigla</th>
-                            <th>Nombre</th>
-                            <th>Logo</th>
-                            <th colspan="2">Opciones</th>
-                            
-                            <!--
-                            <th style="width: 200px;">Imagen</th>-->
-                        </tr>
-                        <tr v-for="grupo in grupos">
-                            <td>@{{grupo.id}}</td>
-                            <td>@{{grupo.sigla}}</td>
-                            <td>@{{grupo.nombre}}</td>
-                           <!-- <td>@{{grupo.logo}}</td>-->
-                           <td><img :src="'{{asset('storage/imgGrupo')}}/'+grupo.logo" class="img-responsive" width="100%"></td>
-                            
-                            {{--@auth--}}
-                            <td><a href="" v-on:click.prevent="editarGrupoInvestigacion(grupo)"><i class="far fa-edit"></i></a></td>
-                            {{--@endauth--}}
-                            <td><a href="" v-on:click.prevent="eliminarGrupoInvestigacion(grupo.id)"><i class="fas fa-trash-alt"></i></a></td>
-                            
-                        </tr>
+                    <a href="" class="btn btn-primary pull-right" v-on:click.prevent="nuevoGrupo()">Nuevo Grupo</a>
+                    <hr>
+                    <table class="table table-responsive" id="tbgrupo" style="margin-top: 10px;">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Sigla</th>
+                                <th>Nombre</th>
+                                <th>Logo</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                                
+                                <!--
+                                <th style="width: 200px;">Imagen</th>-->
+                            </tr>
+                        <tbody>
+                            <tr v-for="grupo in grupos">
+                                <td>@{{grupo.id}}</td>
+                                <td>@{{grupo.sigla}}</td>
+                                <td>@{{grupo.nombre}}</td>
+                                <!-- <td>@{{grupo.logo}}</td>-->
+                                <td><img :src="'{{asset('storage/imgGrupo')}}/'+grupo.logo" class="img-responsive" width="100%"></td>
+                                
+                                {{--@auth--}}
+                                <td><a href="" v-on:click.prevent="editarGrupoInvestigacion(grupo)"><i class="far fa-edit"></i></a></td>
+                                {{--@endauth--}}
+                                <td><a href="" v-on:click.prevent="eliminarGrupoInvestigacion(grupo.id)"><i class="fas fa-trash-alt"></i></a></td>
+                                
+                            </tr>
 
-                        
+                        </tbody>
                     </table>
                 </div>
             </div>

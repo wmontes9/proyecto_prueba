@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use App\Reto;
 use App\Solucion;
 use Session;
+use App\User;
+use App\Institucion;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -168,5 +170,44 @@ class SolucionController extends Controller
         /*}else{
             return $cant;
         }*/
+    }
+    public function solucionesUsuario()
+    {
+        return view('usuarios.soluciones.usuario.index');
+    }
+    public function getSolucionUsuario()
+    {
+        $soluciones = Auth::user()->soluciones->toJson();
+        //dd($retos);
+        return $soluciones;
+    }
+    public function solucionesEmpresa()
+    {    //dd(Auth::user()->instituciones->pluck('id_institucion')->first());
+        //dd($this->getRetosEmpresa(Auth::user()->instituciones->pluck('id_institucion')->first()));
+        return view('usuarios.soluciones.empresa.index',[
+            'solucionesEmpresa' => $this->getSolucionesEmpresa(Auth::user()->instituciones->pluck('id_institucion')->first())
+        ]);
+    }
+    /**
+     * Obtener los retos 
+     * de los usuarios asociados a 
+     * una institucion 
+     * 
+     * @param int id_empresa
+     * @return mixed
+     */
+    public function getSolucionesEmpresa($id)
+    {
+        $soluciones=array(); 
+        $usuarios=array();
+        $solucion =  Institucion::findOrFail($id);
+        $usuarios = $solucion->usuarios;
+        foreach( $usuarios as $usuario){
+            array_push($soluciones,$usuario->soluciones);
+            foreach($usuario->soluciones as $solucion){
+                array_push($soluciones,$solucion->usuarios);
+            }
+        }
+        return $soluciones;
     }
 }

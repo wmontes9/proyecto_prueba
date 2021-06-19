@@ -15,10 +15,17 @@ new Vue({
         accion:"",
     },
     methods:{
+        mytable(){
+			const newLocal = '#tblinea';
+			$(function(){
+				$(newLocal).DataTable();
+			});
+		},
         getLinea:function(){
             const url = "/listaLinea";
             axios.get(url).then(responce => {
                 this.lineas = responce.data; 
+                this.mytable();
                 //alert(responce.data);               
             });            
         },

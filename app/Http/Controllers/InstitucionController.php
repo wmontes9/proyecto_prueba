@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 use App\Institucion;
-use App\Rol;
+use App\Grupo;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Psy\Util\Json;
+
 
 class InstitucionController extends Controller
 { 
@@ -23,7 +24,8 @@ class InstitucionController extends Controller
     }
 
     public function crearInstitucion(Request $request)
-    {        
+    {     
+           
         $validator = $this->validarDatos($request);
         if(!$validator->fails()){                        
             $institucion = new Institucion;
@@ -37,6 +39,7 @@ class InstitucionController extends Controller
             $institucion->save();
 
             $this->agregarActividades($institucion->id_institucion, $request->all());
+            
             
             $usuario_institucion = Auth::user()->instituciones;
             foreach ($usuario_institucion as $institucions) {
@@ -137,14 +140,15 @@ class InstitucionController extends Controller
         ]);
     }
     public function datosInstitucion(Request $request)
-    {                
-        return Institucion::with('grupos')->whereHas('grupos',function($query) use($request){
-                $query->where('grupos.id_grupo', '=', Rol::find($request->session()->get('rolActual'))->id_rol);
-            })->whereHas('usuarios',function($query){
-                $query->where('usuarios.id_usuario','=',Auth::user()->id_usuario);
-            })            
-            ->get()
-            ->toArray();
+    {
+   
+       $institucion = Institucion::with('usuarios')->whereHas('usuarios',function($query) use($request){
+        $query->where('usuarios.id_usuario','=',Auth::user()->id_usuario);
+       })
+       ->get()
+       ->toArray();
+       
+        return $institucion; 
     }
     public function actualizarActividades(Request $request)
     {
@@ -204,28 +208,23 @@ class InstitucionController extends Controller
     public function vincularInstitucion(Request $request)
     {
         $id_empresa = $request->input('id_empresa');
-        $usuario_grupo = Auth::user()->grupos;
-        foreach ($usuario_grupo as $grupo) {
-            if($grupo->pivot->id_grupo === $request->session()->get('rolActual')){  
-                $user = User::findOrFail(Auth::user()->id_usuario); 
-                $user->instituciones()->sync($id_empresa);
-                $user->pivot->rol = "lider"; 
-                $user->pivot->estado = true;                         
-                
-            }
+        $user = User::findOrFail(Auth::user()->id_usuario); 
+        $lider = DB::table('usuario_institucion')->where([
+            ['usuario_institucion.id_institucion', '=', $id_empresa],
+            ['usuario_institucion.rol', '=', 'lider'],
+        ])->get()->toArray();
+        if($lider){ //si existe un registro de la empresa con rol lider
+            $user->instituciones()->sync([$id_empresa => ['rol' => 'asociado', 'estado' => false]]);
+        }else{
+            $user->instituciones()->sync([$id_empresa => ['rol' => 'lider', 'estado' => true]]);
         }
-        /*$usuario_grupo = Auth::user()->grupos;
-        foreach ($usuario_grupo as $grupo) {
-            if($grupo->pivot->id_grupo === $request->session()->get('rolActual')){                                
-                $grupo->pivot->id_institucion = $id_empresa;
-                $grupo->pivot->save();
-            }
-        }*/
+       
        return redirect()->back();
     } 
     //Administracion de Usuarios    
     public function usuariosAsociados($id)
-    {        
+    {  
+           
         if (Auth::user()->instituciones->pluck('id_institucion')->contains($id)) {
             return [
                 "asociados" => $this->consultarUsuariosInstitucion($id,1),
@@ -241,25 +240,32 @@ class InstitucionController extends Controller
     }    
     public function consultarUsuariosInstitucion($id, $estado)
     {
-        return User::with('instituciones')->whereHas('instituciones', function($query) use($id, $estado){
+        $user = User::with('instituciones')->whereHas('instituciones', function($query) use($id, $estado){
             $query->where([
-                    ['usuario_grupo.id_institucion','=',$id],
-                    ['usuario_grupo.id_usuario','<>',Auth::user()->id_usuario],
-                    ['usuario_grupo.estado', '=', $estado]
+                    ['usuario_institucion.id_institucion','=',$id],
+                    ['usuario_institucion.id_usuario','<>',Auth::user()->id_usuario],
+                    ['usuario_institucion.estado', '=', $estado]
                 ]);
         })->get()->toArray();
+        //dd($user);
+        return $user;
     }
     public function activarSolicitud(Request $request, $id)
     {
-        $institucion = Institucion::with([
+        $user = User::findOrFail($id); 
+        $instituciones = $user->instituciones;
+       
+        /*$institucion = Institucion::with([
             'usuarios' => function($query) use($id){
-                $query->where('usuario_grupo.id_usuario', '=', $id)->first();
+                $query->where('usuarios.id_usuario', '=', $id);
             }
-        ])->first();          
-        if( $institucion ){
-           foreach ($institucion->usuarios as $usuario) {
-                $usuario->pivot->estado = $request->switch_estado;
-                $usuario->pivot->save();
+        ])->first(); */ 
+        //dd($instituciones);   
+        if( $instituciones ){
+           foreach ($instituciones as $institucion) {
+                //dd($institucion->pivot->estado);
+                $institucion->pivot->estado = $request->switch_estado;
+                $institucion->pivot->save();
            }
         }
         return redirect()->back();

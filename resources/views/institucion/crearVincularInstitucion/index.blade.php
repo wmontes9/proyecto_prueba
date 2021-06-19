@@ -7,15 +7,15 @@
                     <input type="text" name="buscarEmpresa" id="buscar" v-model="nit_consulta" class="form-control" placeholder="N° nit de la institucion"/>
                 </div>                 
                 <button type="button" class="btn btn-warning w-100" v-on:click="buscarInstitucion" id="consultarInstitucion">
-                    Buscar Institucion
+                    Buscar institución
                 </button>                                            
             </div>   
             <div>
                 <small>
-                    Para registrar una institucion.                    
+                    Para registrar una institución.                    
                 </small>                      
                 <button type="button" class="btn btn-dark w-100" data-toggle="modal" data-target="#insert_i" data-backdrop="static">
-                    Crear Institucion
+                    Crear institución
                 </button>       
             </div>
         </div>
@@ -23,8 +23,8 @@
             <table class="table table-bordered table-sm mt-1" v-if="lista_empresas !== null">
                 <thead>
                     <tr class="thead-dark text-center">
-                        <th>Datos Institucion</th>
-                        <th>Operacion</th>
+                        <th>Datos institución</th>
+                        <th>Operación</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,7 +32,7 @@
                         <td>
                             <ul>
                                 <li>
-                                    <b>Razon Social:</b> @{{institucion.razon_social}}
+                                    <b>Razon social:</b> @{{institucion.razon_social}}
                                 </li>
                                 <li>
                                     <b>Nit:</b> @{{institucion.nit}}
@@ -41,10 +41,10 @@
                                     <b>Email:</b> @{{institucion.email}}
                                 </li>
                                 <li>
-                                    <b>Telefono:</b> @{{institucion.telefono}}
+                                    <b>Teléfono:</b> @{{institucion.telefono}}
                                 </li>
                                 <li>
-                                    <b>Direccion:</b> @{{institucion.direccion}}
+                                    <b>Dirección:</b> @{{institucion.direccion}}
                                 </li>
                             </ul>    
                         </td>
@@ -63,7 +63,7 @@
             <div class="alert alert-secondary mt-1" v-else>
                 <h3 class="alert-heading"><i class="fas fa-info-circle fa-2x"></i></h3>
                 <hr>
-                <p>Por favor Ingresar el nit de la institucion.</p>
+                <p>Por favor ingresar el nit de la institución.</p>
             </div>
         </div>
     </div>

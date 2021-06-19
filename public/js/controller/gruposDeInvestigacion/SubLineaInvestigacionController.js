@@ -16,10 +16,17 @@ new Vue({
     },
 
     methods:{
+        mytable(){
+			const newLocal = '#tbsublinea';
+			$(function(){
+				$(newLocal).DataTable();
+			});
+		},
         getSubLinea:function(){
             const url = "/listaSubLinea";
             axios.get(url).then(responce => {
                 this.sublineas = responce.data; 
+                this.mytable();
                 //alert(responce.data);               
             });            
         },

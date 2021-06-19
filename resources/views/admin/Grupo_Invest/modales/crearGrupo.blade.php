@@ -1,6 +1,6 @@
 <div id="crearGrupo" class="modal fade" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color: rgba(40, 14, 4, 0.95); color: #fff;">
             <div class="modal-header">
                 <h3 class="modal-title text-center w-50">Grupo de investigación</h3>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>

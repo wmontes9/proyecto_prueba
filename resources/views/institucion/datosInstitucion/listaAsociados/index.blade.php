@@ -1,18 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div id="usuariosAsociaodos">
         <div class="container">
             <input type="hidden" name="id_institucion" value="{{$id_institucion}}" >   
             <div class="usuariosAsociados">
-                <h3 class="h3">Usuario Vinculados</h3>            
-                <table class="table table-light table-bordered table-sm" v-if="usuariosAsociados.length > 0">
+                <h3 class="h3">Usuarios vinculados</h3>            
+                <table class="table table-bordered table-sm" v-if="usuariosAsociados.length > 0">
                     <thead>
                         <tr class="thead-dark">
-                            <th>Nombre y Apellidos</th>
-                            <th>Telefono</th>
-                            <th>Correo Electronico</th>
-                            <th>Estado Usuario</th>
+                            <th>Nombre y apellidos</th>
+                            <th>Teléfono</th>
+                            <th>Correo electrónico</th>
+                            <th>Estado usuario</th>
                             <th>Inhabilitar</th>
                         </tr>
                     </thead>
@@ -36,7 +37,7 @@
                 </table>
                 <div class="alert alert-secondary" v-else>
                     <div class="alert-heading">
-                        <h5 class="h5">No se encuantran usuarios Asociados</h5>                    
+                        <h5 class="h5">No se encuantran usuarios asociados</h5>                    
                     </div>
                     <hr/>
                     <p class="p-2">No se han encontrados usuarios asociados a esta empresa.</p>
@@ -48,13 +49,13 @@
             <div class="row">
                 <div class="solicitudes col-md-7">
                     <h3 class="h3">Solicitudes</h3>            
-                    <table class="table table-light table-bordered table-sm" v-if="solicitudes.length > 0">
+                    <table class="table table-bordered table-sm" v-if="solicitudes.length > 0">
                         <thead>
                             <tr class="thead-dark">
-                                <th>Nombre y Apellidos</th>
-                                <th>Telefono</th>
-                                <th>Correo Electronico</th>
-                                <th>Estado Usuario</th>
+                                <th>Nombre y apellidos</th>
+                                <th>Teléfono</th>
+                                <th>Correo electrónico</th>
+                                <th>Estado usuario</th>
                                 <th>Solucitud</th>
                             </tr>
                         </thead>
@@ -78,7 +79,7 @@
                     </table>
                     <div class="alert alert-secondary" v-else>
                         <div class="alert-heading">
-                            <h5 class="h5">No hay Solicitudes!</h5>                    
+                            <h5 class="h5">No hay solicitudes!</h5>                    
                         </div>
                         <hr/>
                         <p class="p-2">No se han encontrado solicitudes para confirmar.</p>
@@ -86,11 +87,11 @@
                 </div>
                 <div class="inhabilitados col-md-5">
                     <h3 class="h3">Usuarios Inhabilitados</h3>            
-                    <table class="table table-light table-bordered table-sm" v-if="inhabilitados.length > 0">
+                    <table class="table table-bordered table-sm" v-if="inhabilitados.length > 0">
                         <thead>
                             <tr class="thead-dark">
                                 <th>Documento</th>                            
-                                <th>Correo Electronico</th>                            
+                                <th>Correo electrónico</th>                            
                                 <th>Habilitar</th>
                             </tr>
                         </thead>
@@ -112,7 +113,7 @@
                     </table>
                     <div class="alert alert-secondary" v-else>
                         <div class="alert-heading">
-                            <h5 class="h5">No hay Usuarios Inhabilitados!</h5>                    
+                            <h5 class="h5">No hay usuarios inhabilitados!</h5>                    
                         </div>
                         <hr/>
                         <p class="p-2">No se han encontrado usuarios inhabilitados.</p>

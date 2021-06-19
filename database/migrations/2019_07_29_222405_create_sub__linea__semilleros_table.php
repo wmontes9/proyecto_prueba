@@ -32,6 +32,6 @@ class CreateSubLineaSemillerosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub__linea__semilleros');
+        Schema::dropIfExists('sub_linea_semilleros');
     }
 }

@@ -13,10 +13,18 @@ new Vue({
         accion:"",
     },
     methods:{
+        mytable(){
+			const newLocal = '#tbgrupo';
+			$(function(){
+				$(newLocal).DataTable();
+			});
+		},
+        
         getGrupoIn:function(){
             const url = "/listaGrupoInvestigacion";
             axios.get(url).then(responce => {
                 this.grupos = responce.data; 
+                this.mytable();
                 //alert(responce.data);               
             });            
         },
@@ -77,9 +85,6 @@ new Vue({
             }
         });
     },
-
-
-
 
 },
 });

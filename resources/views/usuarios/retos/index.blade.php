@@ -1,18 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="retos">                
+    <div id="retosusuario">                
         <div class="container-fluid">  
             <div class="row">
                 <div class="col-md-10">
-                    <h1 class="h1">Lista Retos</h1>    
+                    <h1 class="h1">Lista retos</h1>    
                 </div>
                 <div class="col-md-2 p-1">
-                    <button type="button" class="btn btn-warning w-100" data-toggle="modal" data-target="#crearReto">Formular Reto</button> 
-                    @include('usuarios.retos.modales.crearReto')
+                    <a class="btn btn-small btn-success" href="{{ route('retos.create') }}">Formular reto</a>
+                    <!--<button type="button" class="btn btn-warning w-100" data-toggle="modal" data-target="#crearReto">Formular Reto</button>-->
+                
                 </div>
             </div>         
-            <table class="table table-light table-bordered">
+            <table class="table table-bordered">
                 <thead>
                     <tr class="thead-dark">
                         <th>Id</th>
@@ -28,7 +29,7 @@
                         <td v-text="reto.titulo"></td>
                         <td v-text="reto.pregunta"></td>
                         <td>
-                            <a href="" v-on:click.prevent="editarReto(reto)">
+                            <a v-if="reto.estado != 'false'" href="" v-on:click.prevent="editarReto(reto)">
                                 <i class="far fa-edit"></i>
                             </a>
                         </td>
@@ -40,7 +41,7 @@
                     </tr>
                 </tbody>
             </table>
-            @include('usuarios.retos.modales.actualizarReto')
+           
         </div>
     </div>
     <script src="{{asset('js/controller/retos/RetoController.js')}}"></script>
