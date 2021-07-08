@@ -98,7 +98,7 @@ class RegisterController extends Controller
             $user = User:: find($usere[0]['id_usuario']);
             foreach ($role as $rol) {
                 if($rol['id_grupo'] == $data['rol']){
-                    dd($rol['nombre']);
+                    $user->grupos()->attach(Grupo::findOrFail($data['rol']));
                 }
             }
         }

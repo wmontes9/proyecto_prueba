@@ -45,6 +45,7 @@ Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback')
 });*/
 Route::group(["middleware"=>['auth']],function(){
     Route::get('/home', 'HomeController@index')->name('home');
+    
     /*Route::group(["middleware"=>['admin']],function(){
         Route::get('/home', 'HomeController@admin')->name('admin');
     });*/
@@ -152,3 +153,22 @@ Route::resource('aliados_estrategicos','Aliados_estrategicosController')
     ->names('aliados_estrategicos')
     ->parameters(['aliados_estrategicos' => 'lis_aliados']); 
 
+Route::get('/departamentos','UsuarioController@departamentos');
+Route::get('/municipios/{id}','UsuarioController@municipios');
+Route::get('/categorias','UsuarioController@categorias');
+Route::get('/perfil', 'UsuarioController@actualizardatos')->name('perfil');
+Route::resource('perfilusuario','UsuarioController');
+
+Route::get('/listaSoluciones','SolucionController@getSolucionUsuario')->name('listaSoluciones');
+Route::get('/solucionesUsuario','SolucionController@solucionesUsuario')->name('solucionesUsuario');
+Route::get('/solucionesEmpresa', 'SolucionController@solucionesEmpresa')->name('solucionesEmpresa');
+Route::get('admin/listausers','UserController@listaUsers');
+Route::resource('admin/user','UserController');
+
+Route::post('admin/destroyer/{id}','ComentarioController@destroyer');
+Route::get('admin/getcomentarios','ComentarioController@getComentarios');
+Route::resource("admin/comentarios","ComentarioController");
+
+Route::post('admin/destroyer/{id}','GaleriaController@destroyer');
+Route::get('admin/getGalerias','GaleriaController@getGalerias');
+Route::resource("admin/galerias","GaleriaController");

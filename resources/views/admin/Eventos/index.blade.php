@@ -20,7 +20,8 @@
                             <th scope="col">Subtitulo</th>
                             <th scope="col">Descripción</th>
                             <th scope="col">Lugar</th>
-                            <th scope="col">Fecha</th>
+                            <th scope="col">Fecha inicio</th>
+                            <th scope="col">Fecha fin</th>
                             <th scope="col">Objetivo</th>
                             <th scope="col">Ponentes</th>
                             <th scope="col">Estado</th>
@@ -36,7 +37,8 @@
                             <td>@{{evento.subtitulo}}</td>
                             <td>@{{evento.descripcion}}</td>
                             <td>@{{evento.lugar}}</td>
-                            <td>@{{evento.fecha}}</td>
+                            <td>@{{evento.fecha_inicio}}</td>
+                            <td>@{{evento.fecha_fin}}</td>
                             <td>@{{evento.objetivo}}</td>
                             <td>@{{evento.ponentes}}</td>
                             <td>@{{evento.estado}}</td>

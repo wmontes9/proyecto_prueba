@@ -29,6 +29,7 @@
                     "url": "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
                 }
             });
+           
             $('#buscar').dataTable( {
                 "language": {
                     "url": "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
@@ -55,7 +56,8 @@
         <link rel="stylesheet" href="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.min.css">
         <script src="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.js"></script>
         <link rel="stylesheet" href="https://rawgit.com/lykmapipo/themify-icons/master/css/themify-icons.css">
-        
+        <!--<script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue2-editor/dist/vue2-editor.umd.min.js"></script>-->
         <style>
             
             .label-input{
@@ -84,9 +86,15 @@
             .stepTitle, .wizard-title{
              color: aliceblue !important;
             }
+            .list-group-item{
+              background-color: #1a1814;  
+            }
+            .sweet-modal-content{
+                color: black;
+            }
         </style>                
     </head>
-    <body class="position-relative" style="background-color: #1a1814"> 
+    <body class="position-relative" style="background-color: #1a1814; color:white"> 
      
         @auth       
             <button class="button btn btn-dark h-100" id="open-close-nav">
@@ -100,18 +108,19 @@
                 <div class="navegador shadow-lg" id="nav">
                     <aside class="left-nav h-100 d-flex flex-column position-fixed" style="background-color: rgba(40, 14, 4, 0.95); color: #fff;">                    
                         <div class="group">
-                            <h4 class="h4 pl-2">Innovacion</h4>
+                            <h4 class="h4 pl-2">Innovación</h4>
                             <div class="nav-header mb-3">
                                 <button type="button" class="button btn btn-warning d-flex justify-content-between align-items-center rounded" data-toggle="collapse" data-target="#user-menu" style="background-color: #E06F12">                            
                                     <div>
                                         <i class="far fa-user mt-1 mr-2"></i>
                                         {{Auth::user()->nombre}} {{Auth::user()->apellido}}
+                                        <p>{{ Session::get('rolNombre') }}</p>
                                     </div>
                                     <i class="fas fa-chevron-down mr-2 mx-2"></i>
                                 </button>                                                    
                                 <div class="collapse position-absolute bg-white" id="user-menu">
                                     <div class="item">
-                                        <a href="" class="button-link">
+                                        <a href="{{url('/perfilusuario')}}" class="button-link">
                                                 <i class="fas fa-user-cog mt-1 mx-2"></i> {{__('Perfil')}}
                                         </a>
                                     </div>                                
@@ -136,7 +145,7 @@
                             <div class="nav-seccion">
                                 <div class="w-auto py-4 h-100 rounded mx-1">
                                     <div class="picture">
-                                        <img src="" alt="user-picture"/>
+                                        <img src="{{asset('/storage/imgUsuario')}}/{{ Auth::user()->url_imagen }}" class="img-fluid" alt="user-picture">
                                     </div>
                                 </div>
                             </div>

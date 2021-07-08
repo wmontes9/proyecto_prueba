@@ -11,7 +11,7 @@ new Vue({
 		this.getEventos()
 	},
 	data:{
-		fillEvento:{"id":"","titulo":"","subtitulo":"","descripcion":"","lugar":"","fecha":"","objetivo":"","url_imagen":"","ponentes":"","estado":""},
+		fillEvento:{"id":"","titulo":"","subtitulo":"","descripcion":"","lugar":"","fecha_inicio":"","fecha_fin":"","objetivo":"","url_imagen":"","ponentes":"","estado":""},
 		eventos:[],
 		titulo:"",
 		subtitulo:"",
@@ -62,7 +62,8 @@ new Vue({
 				this.fillEvento.subtitulo = evento.subtitulo;
 				this.fillEvento.descripcion = evento.descripcion;
 				this.fillEvento.lugar = evento.lugar;
-				this.fillEvento.fecha = evento.fecha;
+				this.fillEvento.fecha_inicio = evento.fecha_inicio;
+				this.fillEvento.fecha_fin = evento.fecha_fin;
 				this.fillEvento.objetivo = evento.objetivo;
 				this.fillEvento.ponentes = evento.ponentes;
 				this.fillEvento.estado = evento.estado;

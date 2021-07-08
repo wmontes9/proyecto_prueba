@@ -16,7 +16,7 @@ new Vue({
             let url = '/instituciones/usuarios_vinculados/' + $('input[name="id_institucion"]').val();
             axios.get(url).then(responce => {  
                 if(responce.data[0] == 0){
-                    alert(responce.data[1]);
+                    //alert(responce.data[1]);
                     window.history.back();
                 } else {
                     this.usuariosAsociados = responce.data.asociados;

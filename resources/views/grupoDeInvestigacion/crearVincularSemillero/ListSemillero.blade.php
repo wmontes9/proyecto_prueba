@@ -11,30 +11,36 @@
                     <!--<a class="btn btn-small btn-success" href="{{ route('SectorEconomico.create') }}">Nuevo</a>-->
                     <!--<a href="#newSectorEconomico" data-toggle="modal" class="btn btn-primary pull-right">Nuevo</a>-->
                     <a href="" class="btn btn-primary pull-right" v-on:click.prevent="nuevoSemillero()">Nuevo Semillero</a>
-                    <table class="table table-responsive" style="margin-top: 10px;">
-                        <tr>
-                            <th>Id</th>
-                            <th>Area Conocimiento</th>
-                            <th>Nombre</th>
-                            <th>sigla</th>
-                            <th>Logo</th>
-                            <th colspan="2">Opciones</th>
-                            
-                            <!--linea_invests
-                            <th style="width: 200px;">Imagen</th>-->
-                        </tr>
-                        <tr v-for="semillero in semilleros">
-                            <td>@{{semillero.id}}</td>
-                            <td>@{{semillero.id_area_conocimiento}}</td>
-                            <td>@{{semillero.nombre}}</td>
-                            <td>@{{semillero.sigla}}</td>
-                            <td><img :src="'{{asset('storage/imgSemillero')}}/'+semillero.logo" class="img-responsive" width="100%"></td>
-                            {{--@auth--}}
-                            <td><a href="" v-on:click.prevent="editarSemillero(semillero)"><i class="far fa-edit"></i></a></td>
-                            {{--@endauth--}}
-                            <td><a href="" v-on:click.prevent="eliminarSemillero(semillero.id)"><i class="fas fa-trash-alt"></i></a></td>
-                            
-                        </tr>
+                    <hr>
+                    <table class="table table-responsive" id="tbsemillero" style="margin-top: 10px;">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Area Conocimiento</th>
+                                <th>Nombre</th>
+                                <th>sigla</th>
+                                <th style="width: 200px;">Logo</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                                
+                                <!--linea_invests
+                                <th style="width: 200px;">Imagen</th>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="semillero in semilleros">
+                                <td>@{{semillero.id}}</td>
+                                <td>@{{semillero.id_area_conocimiento}}</td>
+                                <td>@{{semillero.nombre}}</td>
+                                <td>@{{semillero.sigla}}</td>
+                                <td><img :src="'{{asset('storage/imgSemillero')}}/'+semillero.logo" class="img-responsive" width="100%"></td>
+                                {{--@auth--}}
+                                <td><a href="" v-on:click.prevent="editarSemillero(semillero)"><i class="far fa-edit"></i></a></td>
+                                {{--@endauth--}}
+                                <td><a href="" v-on:click.prevent="eliminarSemillero(semillero.id)"><i class="fas fa-trash-alt"></i></a></td>
+                                
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

@@ -20,8 +20,9 @@ class User extends Authenticatable
      */
     protected $fillable = [        
         'id_municipio','nombre', 'apellido', 'tipo_documento',
-        'num_identificacion', 'direccion', 'telefono',
-        'email', 'password','administrador','staf','activo'
+        'num_identificacion','profesion', 'direccion', 'telefono',
+        'email','twitter','facebook','instagram','linkedin','password',
+        'administrador','staf','activo','mentor'
     ];
 
     /**
@@ -55,10 +56,26 @@ class User extends Authenticatable
     }
     public function retos()
     {
-        return $this->belongsToMany(Reto::class, 'reto_usuarios', 'id_usuario', 'id_reto')->withPivot('titulo','pregunta');
+        return $this->belongsToMany(Reto::class, 'reto_usuarios', 'id_usuario', 'id_reto');
     }
     public function instituciones()
     {
-        return $this->belongsToMany(Institucion::class,'usuario_institucion','id_usuario','id_institucion');
+        return $this->belongsToMany(Institucion::class,'usuario_institucion','id_usuario','id_institucion')->withPivot('rol', 'estado');
+    }
+    public function soluciones()
+    {
+        return $this->belongsToMany(Solucion::class,'solucion_usuarios','id_usuario','id_solucion');
+    }
+    public function eventos()
+    {
+        return $this->hasMany(Evento::class, 'id_usuario');
+    }
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class, 'id_usuario');
+    }
+    public function galerias()
+    {
+        return $this->hasMany(Galeria::class, 'id_usuario');
     }
 }

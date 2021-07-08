@@ -1,3 +1,4 @@
+Vue.use(VueFormWizard);
 new Vue({
     el:"#appSemillero",
     created:function() {
@@ -5,7 +6,11 @@ new Vue({
         this.getSemillero();
         this.getArea();
                   
-    },   
+    }, 
+    mounted: function(){
+		//this.getSemillero();
+        //this.getArea();
+	},  
     data:{
         fillSemillero:{"id":"","id_area_conocimiento":"","nombre":"","sigla":"","logo":""},
         semilleros:[],
@@ -16,11 +21,19 @@ new Vue({
         logo:"",
         accion:"",
     },
+    
     methods:{
+        mytable(){
+			const newLocal = '#tbsemillero';
+			$(function(){
+				$(newLocal).DataTable();
+			});
+		},
         getSemillero:function(){
             const url = "/listaSemillero";
             axios.get(url).then(responce => {
                 this.semilleros = responce.data; 
+                this.mytable();
                 //alert(responce.data);               
             });            
         },

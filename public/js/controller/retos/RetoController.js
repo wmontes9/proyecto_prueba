@@ -3,13 +3,13 @@ new Vue({
         app.cargando();
         this.getListaRetos();
     },
-    el:"#retos",
+    el:"#retosusuario",
     data:{
         fillReto:{"id_reto":"","titulo":"","pregunta":"","necesidad":"","causa":"","consecuencia":"",
 		"interesados":"","tiempo_ejecucion":"","lugar":"","condicion_e":"","p_solucion":"","alcance":"",
 		"condicion_p":"","accion":"","conocimiento":"","elementos":"","descripcion_s":"","evaluacion":"",
 		"url_imagen":"","estado":""},
-        retos:null,
+        retos:[],
     },
     methods:{
         getListaRetos:function(){

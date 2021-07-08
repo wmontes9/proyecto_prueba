@@ -44,7 +44,7 @@
                                 </div>
                             </div>                                                        
                         </div>
-                        <div class="w-100 position-relative rounded" style="height:250px; overflow-y: scroll; border:1px solid lightgray;" id="group-list">
+                        <div class="w-100 position-relative rounded" style="height:250px; overflow-y: scroll; border:1px solid lightgray; background-color: #1a1814;" id="group-list">
                             <ul class="list-group list-group-flush" data-spy="scroll" data-offset="20" id="lista_permisos">                           
                                 @foreach ($permisos as $key => $permiso)
                                     <li class="list-group-item d-flex justify-content-between align-items-center py-1 pr-1">

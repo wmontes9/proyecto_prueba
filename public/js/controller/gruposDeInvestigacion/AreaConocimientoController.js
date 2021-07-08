@@ -11,10 +11,17 @@ new Vue({
         accion:"",
     },
     methods:{
+        mytable(){
+			const newLocal = '#tbarea';
+			$(function(){
+				$(newLocal).DataTable();
+			});
+		},
         getArea:function(){
             const url = "/listaArea";
             axios.get(url).then(responce => {
                 this.areas = responce.data; 
+                this.mytable();
                 //alert(responce.data);               
             });            
         },

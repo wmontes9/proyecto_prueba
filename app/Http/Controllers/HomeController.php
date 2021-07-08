@@ -47,7 +47,8 @@ class HomeController extends Controller
         if( $rolActual !== null ){
             $rol = Grupo::find($rolActual);      
             foreach ($this->rutasPorRol as $nombre => $ruta) {
-                if ($rol->nombre === $nombre) {                                          
+                if ($rol->nombre === $nombre) { 
+                    $request->session()->put('rolNombre', $rol->nombre);                                        
                     $request->session()
                         ->put('contenido_nav','layouts.contenidoNav.'. trim(strtolower($nombre)));
                         //dd($ruta,['dts_institucion' => $this->verificarDatosInstitucion()]);

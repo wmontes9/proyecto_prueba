@@ -1,7 +1,7 @@
 <!--Modal Insertar Institucion-->
 <div id="insert_i" class="modal fade" role="dialog">
     <div class="modal-dialog modal-xl">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color: rgba(40, 14, 4, 0.95); color: #fff;">
             <div class="modal-header d-flex justify-content-between">
                 <h3 class="modal-title text-center w-50">Crear Institucion</h3>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>

@@ -35,18 +35,35 @@
                                     <textarea class="form-control" rows="2" name="lugar" v-model="lugar" required>
                                     </textarea>
                                 </div>
+                                <div class="form-group">
+                                    <label for="">5. Objetivo del evento</label>
+                                    <textarea class="form-control" rows="2" name="objetivo" v-model="objetivo" required>
+                                    </textarea>
+                                </div>
                     </tab-content>
                     <tab-content title="Datos adicionales"
                                 icon="ti-check">
                                 <div class="form-group">
-                                    <label for="">5. Fecha del evento</label>
-                                    <input class="form-control" type="date" name="fecha" v-model="fecha" required>
+
+                                    <label>6. Fecha del evento</label>
                                 </div>
-                                <div class="form-group">
-                                    <label for="">6. Objetivo del evento</label>
-                                    <textarea class="form-control" rows="2" name="objetivo" v-model="objetivo" required>
-                                    </textarea>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <?php 
+                                            date_default_timezone_set('America/Bogota');
+                                            $fecha_min = date('Y-m-d');
+                                            $hora_min = date('H');
+                        
+                                        ?>
+                                        <label><li>Fecha inicio</li></label>
+                                        <input type="date" name="fecha_inicio" class="form-control" min="<?php echo $fecha_min; ?>">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label><li>Fecha fin</li></label>
+                                        <input type="date" name="fecha_fin" class="form-control" min="<?php echo $fecha_min; ?>">
+                                    </div>
                                 </div>
+                               
                                 <div class="form-group">
                                     <label for="">7. Ponentes</label>
                                     <textarea class="form-control" rows="2" name="ponentes" v-model="ponentes" required>
@@ -55,6 +72,10 @@
                                 <div class="form-group">
                                     <label for="">8. Imagen del evento</label>
                                     <input type="file" id="url_imagen" name="url_imagen" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">9. url del evento</label>
+                                    <input type="text" id="url_evento" name="url_evento" class="form-control" required>
                                 </div>
                     </tab-content>
                 </form-wizard>

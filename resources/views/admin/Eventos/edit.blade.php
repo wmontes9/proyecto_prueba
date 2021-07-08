@@ -38,17 +38,27 @@
                                     <textarea class="form-control" rows="2" name="lugar" v-model="fillEvento.lugar" required>
                                     </textarea>
                                 </div>
+                                <div class="form-group">
+                                    <label for="">5. Objetivo del evento</label>
+                                    <textarea class="form-control" rows="2" name="objetivo" v-model="fillEvento.objetivo" required>
+                                    </textarea>
+                                </div>
                     </tab-content>
                     <tab-content title="Datos adicionales"
                                 icon="ti-check">
                                 <div class="form-group">
-                                    <label for="">5. Fecha del evento</label>
-                                    <input class="form-control" type="date" name="fecha" v-model="fillEvento.fecha" required>
+
+                                    <label>6. Fecha del evento</label>
                                 </div>
-                                <div class="form-group">
-                                    <label for="">6. Objetivo del evento</label>
-                                    <textarea class="form-control" rows="2" name="objetivo" v-model="fillEvento.objetivo" required>
-                                    </textarea>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for=""><li>Fecha inicio</li></label>
+                                        <input class="form-control" type="date" name="fecha_inicio" id="fecha_inicio" v-model="fillEvento.fecha_inicio" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for=""><li>Fecha fin</li></label>
+                                        <input class="form-control" type="date" name="fecha_fin" v-model="fillEvento.fecha_fin" required>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">7. Ponentes</label>
@@ -56,21 +66,23 @@
                                     </textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">7. Estado: </label>
-                                    <!--<input type="checkbox" name="estado" :value="fillEvento.estado" v-model="fillEvento.estado" />-->
-                                    <input type="radio" value="false" name="estado" v-model="fillEvento.estado">
-                                    <label for="uno">Inactivo</label>
-                                    <input type="radio" value="true" name="estado" v-model="fillEvento.estado">
-                                    <label for="Dos">Activo</label>
-                                </div>
-                                <div class="form-group">
                                     <label for="">8. Imagen del evento</label>
                                     <input type="file" id="url_imagen" name="url_imagen" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-									<label for="">Imagen evento</label>
+									<label for="">9. Imagen evento</label>
 									<img :src="'{{asset('storage/imgEvento')}}' +'/'+ fillEvento.url_imagen" class="img-fluid" alt="Responsive image">
 								</div>
+                                @if(Session::get('rolActual') == 6)
+                                    <div class="form-group">
+                                        <label for="">10. Estado: </label>
+                                        <!--<input type="checkbox" name="estado" :value="fillEvento.estado" v-model="fillEvento.estado" />-->
+                                        <input type="radio" value="false" name="estado" v-model="fillEvento.estado">
+                                        <label for="uno">Inactivo</label>
+                                        <input type="radio" value="true" name="estado" v-model="fillEvento.estado">
+                                        <label for="Dos">Activo</label>
+                                    </div>
+                                @endif
                     </tab-content>
                 </form-wizard>
             </form>

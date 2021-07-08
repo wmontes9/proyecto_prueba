@@ -1,9 +1,20 @@
 @extends("layouts.app")
 
 @section("content")
+<style>
+    .error{
+        color: crimson;
+    }
+</style>
 <div class="container" style="background-color: rgba(40, 14, 4, 0.4); color: #fff;">
     <div class="row" id="Retosmult">
         <div class="col-12">
+            <p v-if="errores.length">
+                <b>Por favor tenga en cuenta lo siguiente:</b>
+                <ul>
+                  <li v-for="erro in errores">@{{ erro }}</li>
+                </ul>
+            </p>
             <form enctype="multipart/form-data" id="creareto" action="{{route('retos.store')}}" method="POST">
                 {{csrf_field()}}
                 <form-wizard @on-complete="onComplete" 
@@ -19,6 +30,7 @@
                                 <div class="form-group">
                                     <label for="">1. Título del reto</label>
                                     <input type="text" name="titulo" v-model="titulo" class="form-control" required>
+                                    <p class="error" v-text="errortitulo"></p>
                                 </div>
                                 <div class="form-group">
                                     <label for="">2. Pregunta retadora</label>
@@ -27,7 +39,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">3. ¿Cuál es la necesidad existente?</label>
-                                    <textarea class="form-control" rows="2" name="necesidad" v-model="necesidad" required>
+                                    <textarea  class="form-control" rows="2" name="necesidad" v-model="necesidad" required>
                                     </textarea>
                                 </div>
                                 <div class="form-group">

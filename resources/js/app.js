@@ -8,7 +8,7 @@ require('./bootstrap');
 require('./database');
 
 window.Vue = require('vue');
-
+import Vue2Editor from "vue2-editor";
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

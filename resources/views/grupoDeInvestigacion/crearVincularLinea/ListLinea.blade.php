@@ -11,28 +11,33 @@
                     <!--<a class="btn btn-small btn-success" href="{{ route('SectorEconomico.create') }}">Nuevo</a>-->
                     <!--<a href="#newSectorEconomico" data-toggle="modal" class="btn btn-primary pull-right">Nuevo</a>-->
                     <a href="" class="btn btn-primary pull-right" v-on:click.prevent="nuevoLinea()">Nueva Linea</a>
-                    <table class="table table-responsive" style="margin-top: 10px;">
-                        <tr>
-                            <th>Id</th>
-                            <th>Grupo</th>
-                            <th>Nombre</th>
-                            <th>Descripcion</th>
-                            <th colspan="2">Opciones</th>
-                            
-                            <!--linea_invests
-                            <th style="width: 200px;">Imagen</th>-->
-                        </tr>
-                        <tr v-for="linea in lineas">
-                            <td>@{{linea.id}}</td>
-                            <td>@{{linea.id_grupo_invest}}</td>
-                            <td>@{{linea.nombre}}</td>
-                            <td>@{{linea.descripcion}}</td>
-                            {{--@auth--}}
-                            <td><a href="" v-on:click.prevent="editarLineaInvestigacion(linea)"><i class="far fa-edit"></i></a></td>
-                            {{--@endauth--}}
-                            <td><a href="" v-on:click.prevent="eliminarLineaInvestigacion(linea.id)"><i class="fas fa-trash-alt"></i></a></td>
-                            
-                        </tr>
+                    <hr>
+                    <table class="table table-responsive" id="tblinea" style="margin-top: 10px;">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Grupo</th>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                                <!--linea_invests
+                                <th style="width: 200px;">Imagen</th>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="linea in lineas">
+                                <td>@{{linea.id}}</td>
+                                <td>@{{linea.id_grupo_invest}}</td>
+                                <td>@{{linea.nombre}}</td>
+                                <td>@{{linea.descripcion}}</td>
+                                {{--@auth--}}
+                                <td><a href="" v-on:click.prevent="editarLineaInvestigacion(linea)"><i class="far fa-edit"></i></a></td>
+                                {{--@endauth--}}
+                                <td><a href="" v-on:click.prevent="eliminarLineaInvestigacion(linea.id)"><i class="fas fa-trash-alt"></i></a></td>
+                                
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

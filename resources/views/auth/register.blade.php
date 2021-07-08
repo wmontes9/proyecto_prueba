@@ -104,10 +104,10 @@
                                         <label for="password_confirm" class="text-md-right">{{ __('Confirmar contraseña') }}</label>
                                         <input id="password_confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
 
-                                            <label for="rol">Rol</label>
+                                            <label for="rol">Categoria</label>
                                             <select name="rol" id="rol" class="form-control ">
                                                 <option value="">--Seleccionar--</option>
-                                                <option v-if="rol.nombre != 'Administrador'" v-for="rol in roles" v-bind:value="rol.id_grupo">@{{rol.nombre}}</option>
+                                                <option   v-for="rol in roles" v-if="rol.nombre != 'Administrador' && rol.nombre != 'Institucional'" v-bind:value="rol.id_grupo">@{{rol.nombre}}</option>
                                             </select>
                                     
                                         <!--<div class="col d-flex justify-content-end align-items-end">

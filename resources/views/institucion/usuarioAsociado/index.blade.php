@@ -1,4 +1,4 @@
-@if (Auth::user()->grupos->first()->pivot->estado == 0)
+@if (Auth::user()->instituciones->first()->pivot->estado == 0)
     <div class="alert alert-info">
         <div class="alert-heading">
             <h2 class="h2">Estado Inactivo</h2>    
@@ -21,4 +21,7 @@
         </p>
     </div>
 @else
+<div>
+    <p>Usuario habilitado vinculado a la empresa <b>{{$dts_institucion['razon_social']}}</b></p>
+</div>
 @endif
